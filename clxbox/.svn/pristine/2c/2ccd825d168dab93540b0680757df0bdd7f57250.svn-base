@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxExpressMsgLogMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxExpressMsgLog" useGeneratedKeys="true" keyProperty="logId" >
+    INSERT INTO
+      CLX_EXPRESS_MSG_LOG
+    (
+      express_depart,
+      express_arrive,
+      prop_code,
+      prop_value,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{expressDepart},
+      #{expressArrive},
+      #{propCode},
+      #{propValue},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_EXPRESS_MSG_LOG
+    WHERE
+      log_id = #{logId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxExpressMsgLog" >
+    UPDATE
+      CLX_EXPRESS_MSG_LOG
+    <set>
+      <if test="logId != null">
+        log_id = #{logId},
+      </if>
+      <if test="expressDepart != null">
+        express_depart = #{expressDepart},
+      </if>
+      <if test="expressArrive != null">
+        express_arrive = #{expressArrive},
+      </if>
+      <if test="propCode != null">
+        prop_code = #{propCode},
+      </if>
+      <if test="propValue != null">
+        prop_value = #{propValue},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      log_id = #{logId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxExpressMsgLog" >
+    UPDATE
+      CLX_EXPRESS_MSG_LOG
+    SET
+      log_id = #{logId},
+      express_depart = #{expressDepart},
+      express_arrive = #{expressArrive},
+      prop_code = #{propCode},
+      prop_value = #{propValue},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      log_id = #{logId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxExpressMsgLog" >
+    SELECT
+      log_id AS logId,
+      express_depart AS expressDepart,
+      express_arrive AS expressArrive,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_EXPRESS_MSG_LOG
+    WHERE
+      log_id = #{logId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxExpressMsgLog" resultType="com.zebra.box.db.model.ClxExpressMsgLog" >
+    SELECT
+      log_id AS logId,
+      express_depart AS expressDepart,
+      express_arrive AS expressArrive,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_EXPRESS_MSG_LOG
+    WHERE
+      1 = 1
+      <if test="logId != null">
+        AND log_id = #{logId}
+      </if>
+      <if test="expressDepart != null">
+        AND express_depart = #{expressDepart}
+      </if>
+      <if test="expressArrive != null">
+        AND express_arrive = #{expressArrive}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxExpressMsgLog" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_EXPRESS_MSG_LOG
+    WHERE
+      1 = 1
+      <if test="logId != null">
+        AND log_id = #{logId}
+      </if>
+      <if test="expressDepart != null">
+        AND express_depart = #{expressDepart}
+      </if>
+      <if test="expressArrive != null">
+        AND express_arrive = #{expressArrive}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

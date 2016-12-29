@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxHelpPropertymgtEnterwayGroupMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxHelpPropertymgtEnterwayGroup" useGeneratedKeys="true" keyProperty="enterwayGroupid" >
+    INSERT INTO
+      CLX_HELP_PROPERTYMGT_ENTERWAY_GROUP
+    (
+      enterway_groupcode,
+      enterway_groupname,
+      propertymgt_text,
+      enterway_textsort,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag,
+      group_usedlock,
+      group_enabled
+    ) VALUES (
+      #{enterwayGroupcode},
+      #{enterwayGroupname},
+      #{propertymgtText},
+      #{enterwayTextsort},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag},
+      #{groupUsedlock},
+      #{groupEnabled}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_HELP_PROPERTYMGT_ENTERWAY_GROUP
+    WHERE
+      enterway_groupid = #{enterwayGroupid}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxHelpPropertymgtEnterwayGroup" >
+    UPDATE
+      CLX_HELP_PROPERTYMGT_ENTERWAY_GROUP
+    <set>
+      <if test="enterwayGroupid != null">
+        enterway_groupid = #{enterwayGroupid},
+      </if>
+      <if test="enterwayGroupcode != null">
+        enterway_groupcode = #{enterwayGroupcode},
+      </if>
+      <if test="enterwayGroupname != null">
+        enterway_groupname = #{enterwayGroupname},
+      </if>
+      <if test="propertymgtText != null">
+        propertymgt_text = #{propertymgtText},
+      </if>
+      <if test="enterwayTextsort != null">
+        enterway_textsort = #{enterwayTextsort},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+      <if test="groupUsedlock != null">
+        group_usedlock = #{groupUsedlock},
+      </if>
+      <if test="groupEnabled != null">
+        group_enabled = #{groupEnabled},
+      </if>
+    </set>
+    WHERE
+      enterway_groupid = #{enterwayGroupid}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxHelpPropertymgtEnterwayGroup" >
+    UPDATE
+      CLX_HELP_PROPERTYMGT_ENTERWAY_GROUP
+    SET
+      enterway_groupid = #{enterwayGroupid},
+      enterway_groupcode = #{enterwayGroupcode},
+      enterway_groupname = #{enterwayGroupname},
+      propertymgt_text = #{propertymgtText},
+      enterway_textsort = #{enterwayTextsort},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag},
+      group_usedlock = #{groupUsedlock},
+      group_enabled = #{groupEnabled}
+    WHERE
+      enterway_groupid = #{enterwayGroupid}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxHelpPropertymgtEnterwayGroup" >
+    SELECT
+      enterway_groupid AS enterwayGroupid,
+      enterway_groupcode AS enterwayGroupcode,
+      enterway_groupname AS enterwayGroupname,
+      propertymgt_text AS propertymgtText,
+      enterway_textsort AS enterwayTextsort,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag,
+      group_usedlock AS groupUsedlock,
+      group_enabled AS groupEnabled
+    FROM
+      CLX_HELP_PROPERTYMGT_ENTERWAY_GROUP
+    WHERE
+      enterway_groupid = #{enterwayGroupid}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxHelpPropertymgtEnterwayGroup" resultType="com.zebra.box.db.model.ClxHelpPropertymgtEnterwayGroup" >
+    SELECT
+      enterway_groupid AS enterwayGroupid,
+      enterway_groupcode AS enterwayGroupcode,
+      enterway_groupname AS enterwayGroupname,
+      propertymgt_text AS propertymgtText,
+      enterway_textsort AS enterwayTextsort,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag,
+      group_usedlock AS groupUsedlock,
+      group_enabled AS groupEnabled
+    FROM
+      CLX_HELP_PROPERTYMGT_ENTERWAY_GROUP
+    WHERE
+      1 = 1
+      <if test="enterwayGroupid != null">
+        AND enterway_groupid = #{enterwayGroupid}
+      </if>
+      <if test="enterwayGroupcode != null">
+        AND enterway_groupcode = #{enterwayGroupcode}
+      </if>
+      <if test="enterwayGroupname != null">
+        AND enterway_groupname = #{enterwayGroupname}
+      </if>
+      <if test="propertymgtText != null">
+        AND propertymgt_text = #{propertymgtText}
+      </if>
+      <if test="enterwayTextsort != null">
+        AND enterway_textsort = #{enterwayTextsort}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+      <if test="groupUsedlock != null">
+        AND group_usedlock = #{groupUsedlock}
+      </if>
+      <if test="groupEnabled != null">
+        AND group_enabled = #{groupEnabled}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxHelpPropertymgtEnterwayGroup" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_HELP_PROPERTYMGT_ENTERWAY_GROUP
+    WHERE
+      1 = 1
+      <if test="enterwayGroupid != null">
+        AND enterway_groupid = #{enterwayGroupid}
+      </if>
+      <if test="enterwayGroupcode != null">
+        AND enterway_groupcode = #{enterwayGroupcode}
+      </if>
+      <if test="enterwayGroupname != null">
+        AND enterway_groupname = #{enterwayGroupname}
+      </if>
+      <if test="propertymgtText != null">
+        AND propertymgt_text = #{propertymgtText}
+      </if>
+      <if test="enterwayTextsort != null">
+        AND enterway_textsort = #{enterwayTextsort}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+      <if test="groupUsedlock != null">
+        AND group_usedlock = #{groupUsedlock}
+      </if>
+      <if test="groupEnabled != null">
+        AND group_enabled = #{groupEnabled}
+      </if>
+  </select>
+</mapper>

@@ -1,0 +1,33 @@
+log4j.rootLogger=ERRO,Console,File
+
+#log4j.logger.org.springframework.web.servlet=INFO
+#log4j.logger.org.springframework.beans.factory.xml=INFO  
+#log4j.logger.com.neam.stum.user=INFO
+
+########################################  
+# Console Appender
+########################################
+log4j.appender.Console=org.apache.log4j.ConsoleAppender
+log4j.appender.Console.Target=System.out
+log4j.appender.Console.layout=org.apache.log4j.PatternLayout
+log4j.appender.Console.layout.ConversionPattern=[%c]%m%n
+
+########################################  
+# File Appender
+########################################
+log4j.appender.File=org.apache.log4j.RollingFileAppender 
+log4j.appender.File.File=F:\\log\\myy.log
+log4j.appender.File.MaxFileSize=10MB
+log4j.appender.File.Threshold=ALL
+log4j.appender.File.layout=org.apache.log4j.PatternLayout
+log4j.appender.File.layout.ConversionPattern=[%p][%d{yyyy-MM-dd HH\:mm\:ss,SSS}][%c]%m%n
+
+########################################  
+# DB Appender, biz
+########################################
+
+########################################  
+# SQL
+########################################
+log4j.logger.java.sql=INFO
+log4j.logger.java.sql.PreparedStatement=INFO

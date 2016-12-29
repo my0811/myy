@@ -1,0 +1,25 @@
+#\u6570\u636e\u5e93\u9a71\u52a8
+mysql.jdbc.driver=com.mysql.jdbc.Driver
+#dbcp2\u914d\u7f6e\u5c5e\u6027
+dbcp2.maxActive=100
+dbcp2.maxIdle=30
+dbcp2.minIdle=10
+dbcp2.maxWait=1000
+dbcp2.initialSize=10
+dbcp2.initialSize = 20
+dbcp2.timeBetweenEvictionRunsMillis = 60000
+dbcp2.poolPreparedStatements = true
+dbcp2.maxOpenPreparedStatements = 50
+dbcp2.removeAbandonedTimeout = 180
+dbcp2.testWhileIdle = true
+dbcp2.testOnBorrow = false
+dbcp2.testOnReturn = false
+dbcp2.validationQuery = SELECT 1 FROM DUAL
+#local
+mysql.jdbc.local.url=jdbc:mysql://localhost:3306/clxboxtest
+mysql.jdbc.local.username=root
+mysql.jdbc.local.password=root
+#206\u6570\u636e\u6e90
+mysql.jdbc.206.url=jdbc:mysql://115.28.202.139:30012/clxbox_db
+mysql.jdbc.206.username=reverb
+mysql.jdbc.206.password=yan8636396

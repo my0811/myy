@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxJoinusListMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxJoinusList" useGeneratedKeys="true" keyProperty="listId" >
+    INSERT INTO
+      CLX_JOINUS_LIST
+    (
+      job_title,
+      depart,
+      release_time,
+      recruitmentmsg_id,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{jobTitle},
+      #{depart},
+      #{releaseTime},
+      #{recruitmentmsgId},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_JOINUS_LIST
+    WHERE
+      list_id = #{listId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxJoinusList" >
+    UPDATE
+      CLX_JOINUS_LIST
+    <set>
+      <if test="listId != null">
+        list_id = #{listId},
+      </if>
+      <if test="jobTitle != null">
+        job_title = #{jobTitle},
+      </if>
+      <if test="depart != null">
+        depart = #{depart},
+      </if>
+      <if test="releaseTime != null">
+        release_time = #{releaseTime},
+      </if>
+      <if test="recruitmentmsgId != null">
+        recruitmentmsg_id = #{recruitmentmsgId},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      list_id = #{listId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxJoinusList" >
+    UPDATE
+      CLX_JOINUS_LIST
+    SET
+      list_id = #{listId},
+      job_title = #{jobTitle},
+      depart = #{depart},
+      release_time = #{releaseTime},
+      recruitmentmsg_id = #{recruitmentmsgId},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      list_id = #{listId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxJoinusList" >
+    SELECT
+      list_id AS listId,
+      job_title AS jobTitle,
+      depart AS depart,
+      release_time AS releaseTime,
+      recruitmentmsg_id AS recruitmentmsgId,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_JOINUS_LIST
+    WHERE
+      list_id = #{listId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxJoinusList" resultType="com.zebra.box.db.model.ClxJoinusList" >
+    SELECT
+      list_id AS listId,
+      job_title AS jobTitle,
+      depart AS depart,
+      release_time AS releaseTime,
+      recruitmentmsg_id AS recruitmentmsgId,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_JOINUS_LIST
+    WHERE
+      1 = 1
+      <if test="listId != null">
+        AND list_id = #{listId}
+      </if>
+      <if test="jobTitle != null">
+        AND job_title = #{jobTitle}
+      </if>
+      <if test="depart != null">
+        AND depart = #{depart}
+      </if>
+      <if test="releaseTime != null">
+        AND release_time = #{releaseTime}
+      </if>
+      <if test="recruitmentmsgId != null">
+        AND recruitmentmsg_id = #{recruitmentmsgId}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxJoinusList" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_JOINUS_LIST
+    WHERE
+      1 = 1
+      <if test="listId != null">
+        AND list_id = #{listId}
+      </if>
+      <if test="jobTitle != null">
+        AND job_title = #{jobTitle}
+      </if>
+      <if test="depart != null">
+        AND depart = #{depart}
+      </if>
+      <if test="releaseTime != null">
+        AND release_time = #{releaseTime}
+      </if>
+      <if test="recruitmentmsgId != null">
+        AND recruitmentmsg_id = #{recruitmentmsgId}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

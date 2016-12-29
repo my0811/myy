@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxCommonMsgcenteLogMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxCommonMsgcenteLog" useGeneratedKeys="true" keyProperty="msgcenterId" >
+    INSERT INTO
+      CLX_COMMON_MSGCENTE_LOG
+    (
+      contact_groupcode,
+      bq_groupcode,
+      formimg_groupcode,
+      thumb_groupcode,
+      list_groupcode,
+      enterway_groupcode,
+      log_operation_status,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{contactGroupcode},
+      #{bqGroupcode},
+      #{formimgGroupcode},
+      #{thumbGroupcode},
+      #{listGroupcode},
+      #{enterwayGroupcode},
+      #{logOperationStatus},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_COMMON_MSGCENTE_LOG
+    WHERE
+      msgcenter_id = #{msgcenterId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCommonMsgcenteLog" >
+    UPDATE
+      CLX_COMMON_MSGCENTE_LOG
+    <set>
+      <if test="msgcenterId != null">
+        msgcenter_id = #{msgcenterId},
+      </if>
+      <if test="contactGroupcode != null">
+        contact_groupcode = #{contactGroupcode},
+      </if>
+      <if test="bqGroupcode != null">
+        bq_groupcode = #{bqGroupcode},
+      </if>
+      <if test="formimgGroupcode != null">
+        formimg_groupcode = #{formimgGroupcode},
+      </if>
+      <if test="thumbGroupcode != null">
+        thumb_groupcode = #{thumbGroupcode},
+      </if>
+      <if test="listGroupcode != null">
+        list_groupcode = #{listGroupcode},
+      </if>
+      <if test="enterwayGroupcode != null">
+        enterway_groupcode = #{enterwayGroupcode},
+      </if>
+      <if test="logOperationStatus != null">
+        log_operation_status = #{logOperationStatus},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      msgcenter_id = #{msgcenterId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCommonMsgcenteLog" >
+    UPDATE
+      CLX_COMMON_MSGCENTE_LOG
+    SET
+      msgcenter_id = #{msgcenterId},
+      contact_groupcode = #{contactGroupcode},
+      bq_groupcode = #{bqGroupcode},
+      formimg_groupcode = #{formimgGroupcode},
+      thumb_groupcode = #{thumbGroupcode},
+      list_groupcode = #{listGroupcode},
+      enterway_groupcode = #{enterwayGroupcode},
+      log_operation_status = #{logOperationStatus},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      msgcenter_id = #{msgcenterId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxCommonMsgcenteLog" >
+    SELECT
+      msgcenter_id AS msgcenterId,
+      contact_groupcode AS contactGroupcode,
+      bq_groupcode AS bqGroupcode,
+      formimg_groupcode AS formimgGroupcode,
+      thumb_groupcode AS thumbGroupcode,
+      list_groupcode AS listGroupcode,
+      enterway_groupcode AS enterwayGroupcode,
+      log_operation_status AS logOperationStatus,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COMMON_MSGCENTE_LOG
+    WHERE
+      msgcenter_id = #{msgcenterId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxCommonMsgcenteLog" resultType="com.zebra.box.db.model.ClxCommonMsgcenteLog" >
+    SELECT
+      msgcenter_id AS msgcenterId,
+      contact_groupcode AS contactGroupcode,
+      bq_groupcode AS bqGroupcode,
+      formimg_groupcode AS formimgGroupcode,
+      thumb_groupcode AS thumbGroupcode,
+      list_groupcode AS listGroupcode,
+      enterway_groupcode AS enterwayGroupcode,
+      log_operation_status AS logOperationStatus,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COMMON_MSGCENTE_LOG
+    WHERE
+      1 = 1
+      <if test="msgcenterId != null">
+        AND msgcenter_id = #{msgcenterId}
+      </if>
+      <if test="contactGroupcode != null">
+        AND contact_groupcode = #{contactGroupcode}
+      </if>
+      <if test="bqGroupcode != null">
+        AND bq_groupcode = #{bqGroupcode}
+      </if>
+      <if test="formimgGroupcode != null">
+        AND formimg_groupcode = #{formimgGroupcode}
+      </if>
+      <if test="thumbGroupcode != null">
+        AND thumb_groupcode = #{thumbGroupcode}
+      </if>
+      <if test="listGroupcode != null">
+        AND list_groupcode = #{listGroupcode}
+      </if>
+      <if test="enterwayGroupcode != null">
+        AND enterway_groupcode = #{enterwayGroupcode}
+      </if>
+      <if test="logOperationStatus != null">
+        AND log_operation_status = #{logOperationStatus}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxCommonMsgcenteLog" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_COMMON_MSGCENTE_LOG
+    WHERE
+      1 = 1
+      <if test="msgcenterId != null">
+        AND msgcenter_id = #{msgcenterId}
+      </if>
+      <if test="contactGroupcode != null">
+        AND contact_groupcode = #{contactGroupcode}
+      </if>
+      <if test="bqGroupcode != null">
+        AND bq_groupcode = #{bqGroupcode}
+      </if>
+      <if test="formimgGroupcode != null">
+        AND formimg_groupcode = #{formimgGroupcode}
+      </if>
+      <if test="thumbGroupcode != null">
+        AND thumb_groupcode = #{thumbGroupcode}
+      </if>
+      <if test="listGroupcode != null">
+        AND list_groupcode = #{listGroupcode}
+      </if>
+      <if test="enterwayGroupcode != null">
+        AND enterway_groupcode = #{enterwayGroupcode}
+      </if>
+      <if test="logOperationStatus != null">
+        AND log_operation_status = #{logOperationStatus}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

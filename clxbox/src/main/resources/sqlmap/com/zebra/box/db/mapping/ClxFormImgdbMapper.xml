@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxFormImgdbMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxFormImgdb" useGeneratedKeys="true" keyProperty="imgdbId" >
+    INSERT INTO
+      CLX_FORM_IMGDB
+    (
+      imgdb_uuid,
+      imgdb_addr,
+      imgdb_name,
+      imgdb_ossfilename,
+      imgdb_filetype,
+      imgdb_usedlock,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{imgdbUuid},
+      #{imgdbAddr},
+      #{imgdbName},
+      #{imgdbOssfilename},
+      #{imgdbFiletype},
+      #{imgdbUsedlock},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_FORM_IMGDB
+    WHERE
+      imgdb_id = #{imgdbId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxFormImgdb" >
+    UPDATE
+      CLX_FORM_IMGDB
+    <set>
+      <if test="imgdbId != null">
+        imgdb_id = #{imgdbId},
+      </if>
+      <if test="imgdbUuid != null">
+        imgdb_uuid = #{imgdbUuid},
+      </if>
+      <if test="imgdbAddr != null">
+        imgdb_addr = #{imgdbAddr},
+      </if>
+      <if test="imgdbName != null">
+        imgdb_name = #{imgdbName},
+      </if>
+      <if test="imgdbOssfilename != null">
+        imgdb_ossfilename = #{imgdbOssfilename},
+      </if>
+      <if test="imgdbFiletype != null">
+        imgdb_filetype = #{imgdbFiletype},
+      </if>
+      <if test="imgdbUsedlock != null">
+        imgdb_usedlock = #{imgdbUsedlock},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      imgdb_id = #{imgdbId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxFormImgdb" >
+    UPDATE
+      CLX_FORM_IMGDB
+    SET
+      imgdb_id = #{imgdbId},
+      imgdb_uuid = #{imgdbUuid},
+      imgdb_addr = #{imgdbAddr},
+      imgdb_name = #{imgdbName},
+      imgdb_ossfilename = #{imgdbOssfilename},
+      imgdb_filetype = #{imgdbFiletype},
+      imgdb_usedlock = #{imgdbUsedlock},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      imgdb_id = #{imgdbId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxFormImgdb" >
+    SELECT
+      imgdb_id AS imgdbId,
+      imgdb_uuid AS imgdbUuid,
+      imgdb_addr AS imgdbAddr,
+      imgdb_name AS imgdbName,
+      imgdb_ossfilename AS imgdbOssfilename,
+      imgdb_filetype AS imgdbFiletype,
+      imgdb_usedlock AS imgdbUsedlock,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_FORM_IMGDB
+    WHERE
+      imgdb_id = #{imgdbId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxFormImgdb" resultType="com.zebra.box.db.model.ClxFormImgdb" >
+    SELECT
+      imgdb_id AS imgdbId,
+      imgdb_uuid AS imgdbUuid,
+      imgdb_addr AS imgdbAddr,
+      imgdb_name AS imgdbName,
+      imgdb_ossfilename AS imgdbOssfilename,
+      imgdb_filetype AS imgdbFiletype,
+      imgdb_usedlock AS imgdbUsedlock,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_FORM_IMGDB
+    WHERE
+      1 = 1
+      <if test="imgdbId != null">
+        AND imgdb_id = #{imgdbId}
+      </if>
+      <if test="imgdbUuid != null">
+        AND imgdb_uuid = #{imgdbUuid}
+      </if>
+      <if test="imgdbAddr != null">
+        AND imgdb_addr = #{imgdbAddr}
+      </if>
+      <if test="imgdbName != null">
+        AND imgdb_name = #{imgdbName}
+      </if>
+      <if test="imgdbOssfilename != null">
+        AND imgdb_ossfilename = #{imgdbOssfilename}
+      </if>
+      <if test="imgdbFiletype != null">
+        AND imgdb_filetype = #{imgdbFiletype}
+      </if>
+      <if test="imgdbUsedlock != null">
+        AND imgdb_usedlock = #{imgdbUsedlock}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxFormImgdb" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_FORM_IMGDB
+    WHERE
+      1 = 1
+      <if test="imgdbId != null">
+        AND imgdb_id = #{imgdbId}
+      </if>
+      <if test="imgdbUuid != null">
+        AND imgdb_uuid = #{imgdbUuid}
+      </if>
+      <if test="imgdbAddr != null">
+        AND imgdb_addr = #{imgdbAddr}
+      </if>
+      <if test="imgdbName != null">
+        AND imgdb_name = #{imgdbName}
+      </if>
+      <if test="imgdbOssfilename != null">
+        AND imgdb_ossfilename = #{imgdbOssfilename}
+      </if>
+      <if test="imgdbFiletype != null">
+        AND imgdb_filetype = #{imgdbFiletype}
+      </if>
+      <if test="imgdbUsedlock != null">
+        AND imgdb_usedlock = #{imgdbUsedlock}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

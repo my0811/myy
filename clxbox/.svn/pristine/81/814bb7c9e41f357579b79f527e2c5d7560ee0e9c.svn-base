@@ -1,0 +1,24 @@
+package com.zebra.box.db.mapper.demo;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.zebra.box.db.model.demo.User;
+import com.zebra.framework.test.SpringJunit4Test;
+
+public class DemoTest extends SpringJunit4Test {
+	@Autowired
+	UserMapper mapper;
+	
+	@Test
+	
+	public void findUsersTest(){
+		
+	  for (User u :mapper.findUserList()){
+		  System.out.println(u.getAcccount());
+		  
+	  }
+	}
+	
+
+}

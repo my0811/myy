@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxCoopapplyBusinesscooperatorMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxCoopapplyBusinesscooperator" useGeneratedKeys="true" keyProperty="businesscooperId" >
+    INSERT INTO
+      CLX_COOPAPPLY_BUSINESSCOOPERATOR
+    (
+      prop_code,
+      prop_value,
+      business_othertype,
+      business_name,
+      business_scope,
+      business_addrcode,
+      business_detailaddr,
+      business_text,
+      business_tel,
+      business_linkman,
+      business_linkmantel,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{propCode},
+      #{propValue},
+      #{businessOthertype},
+      #{businessName},
+      #{businessScope},
+      #{businessAddrcode},
+      #{businessDetailaddr},
+      #{businessText},
+      #{businessTel},
+      #{businessLinkman},
+      #{businessLinkmantel},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_COOPAPPLY_BUSINESSCOOPERATOR
+    WHERE
+      businesscooper_id = #{businesscooperId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCoopapplyBusinesscooperator" >
+    UPDATE
+      CLX_COOPAPPLY_BUSINESSCOOPERATOR
+    <set>
+      <if test="businesscooperId != null">
+        businesscooper_id = #{businesscooperId},
+      </if>
+      <if test="propCode != null">
+        prop_code = #{propCode},
+      </if>
+      <if test="propValue != null">
+        prop_value = #{propValue},
+      </if>
+      <if test="businessOthertype != null">
+        business_othertype = #{businessOthertype},
+      </if>
+      <if test="businessName != null">
+        business_name = #{businessName},
+      </if>
+      <if test="businessScope != null">
+        business_scope = #{businessScope},
+      </if>
+      <if test="businessAddrcode != null">
+        business_addrcode = #{businessAddrcode},
+      </if>
+      <if test="businessDetailaddr != null">
+        business_detailaddr = #{businessDetailaddr},
+      </if>
+      <if test="businessText != null">
+        business_text = #{businessText},
+      </if>
+      <if test="businessTel != null">
+        business_tel = #{businessTel},
+      </if>
+      <if test="businessLinkman != null">
+        business_linkman = #{businessLinkman},
+      </if>
+      <if test="businessLinkmantel != null">
+        business_linkmantel = #{businessLinkmantel},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      businesscooper_id = #{businesscooperId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCoopapplyBusinesscooperator" >
+    UPDATE
+      CLX_COOPAPPLY_BUSINESSCOOPERATOR
+    SET
+      businesscooper_id = #{businesscooperId},
+      prop_code = #{propCode},
+      prop_value = #{propValue},
+      business_othertype = #{businessOthertype},
+      business_name = #{businessName},
+      business_scope = #{businessScope},
+      business_addrcode = #{businessAddrcode},
+      business_detailaddr = #{businessDetailaddr},
+      business_text = #{businessText},
+      business_tel = #{businessTel},
+      business_linkman = #{businessLinkman},
+      business_linkmantel = #{businessLinkmantel},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      businesscooper_id = #{businesscooperId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxCoopapplyBusinesscooperator" >
+    SELECT
+      businesscooper_id AS businesscooperId,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      business_othertype AS businessOthertype,
+      business_name AS businessName,
+      business_scope AS businessScope,
+      business_addrcode AS businessAddrcode,
+      business_detailaddr AS businessDetailaddr,
+      business_text AS businessText,
+      business_tel AS businessTel,
+      business_linkman AS businessLinkman,
+      business_linkmantel AS businessLinkmantel,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COOPAPPLY_BUSINESSCOOPERATOR
+    WHERE
+      businesscooper_id = #{businesscooperId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxCoopapplyBusinesscooperator" resultType="com.zebra.box.db.model.ClxCoopapplyBusinesscooperator" >
+    SELECT
+      businesscooper_id AS businesscooperId,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      business_othertype AS businessOthertype,
+      business_name AS businessName,
+      business_scope AS businessScope,
+      business_addrcode AS businessAddrcode,
+      business_detailaddr AS businessDetailaddr,
+      business_text AS businessText,
+      business_tel AS businessTel,
+      business_linkman AS businessLinkman,
+      business_linkmantel AS businessLinkmantel,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COOPAPPLY_BUSINESSCOOPERATOR
+    WHERE
+      1 = 1
+      <if test="businesscooperId != null">
+        AND businesscooper_id = #{businesscooperId}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="businessOthertype != null">
+        AND business_othertype = #{businessOthertype}
+      </if>
+      <if test="businessName != null">
+        AND business_name = #{businessName}
+      </if>
+      <if test="businessScope != null">
+        AND business_scope = #{businessScope}
+      </if>
+      <if test="businessAddrcode != null">
+        AND business_addrcode = #{businessAddrcode}
+      </if>
+      <if test="businessDetailaddr != null">
+        AND business_detailaddr = #{businessDetailaddr}
+      </if>
+      <if test="businessText != null">
+        AND business_text = #{businessText}
+      </if>
+      <if test="businessTel != null">
+        AND business_tel = #{businessTel}
+      </if>
+      <if test="businessLinkman != null">
+        AND business_linkman = #{businessLinkman}
+      </if>
+      <if test="businessLinkmantel != null">
+        AND business_linkmantel = #{businessLinkmantel}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxCoopapplyBusinesscooperator" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_COOPAPPLY_BUSINESSCOOPERATOR
+    WHERE
+      1 = 1
+      <if test="businesscooperId != null">
+        AND businesscooper_id = #{businesscooperId}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="businessOthertype != null">
+        AND business_othertype = #{businessOthertype}
+      </if>
+      <if test="businessName != null">
+        AND business_name = #{businessName}
+      </if>
+      <if test="businessScope != null">
+        AND business_scope = #{businessScope}
+      </if>
+      <if test="businessAddrcode != null">
+        AND business_addrcode = #{businessAddrcode}
+      </if>
+      <if test="businessDetailaddr != null">
+        AND business_detailaddr = #{businessDetailaddr}
+      </if>
+      <if test="businessText != null">
+        AND business_text = #{businessText}
+      </if>
+      <if test="businessTel != null">
+        AND business_tel = #{businessTel}
+      </if>
+      <if test="businessLinkman != null">
+        AND business_linkman = #{businessLinkman}
+      </if>
+      <if test="businessLinkmantel != null">
+        AND business_linkmantel = #{businessLinkmantel}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

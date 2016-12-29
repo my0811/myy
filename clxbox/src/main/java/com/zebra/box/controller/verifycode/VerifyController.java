@@ -1,0 +1,65 @@
+package com.zebra.box.controller.verifycode;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.zebra.box.constans.SessionKey;
+import com.zebra.box.fw.utils.VerifyCodeUtils;
+import com.zebra.box.fw.utils.WebUtils;
+import com.zebra.box.prop.modelprop.VerifyCodeProp;
+
+/***
+ * @PackageName: com.zebra.box.controller.verifycode
+ * @FileName: VerifyController.java
+ * @ClassName: VerifyController
+ * @QualifiedName:com.zebra.box.controller.verifycode.VerifyController
+ * @Description: 生成验证码controller
+ * @Author YangZhongKui yangzhongkui@diyfactory.com.cn
+ * @Date 2015年12月16日 上午9:54:02
+ * @Version V1.0
+ */
+@Controller
+@RequestMapping("/verifyController")
+public class VerifyController {
+
+    private static Logger logger = LoggerFactory.getLogger(VerifyController.class);
+
+    // 验证码规则属性文件
+    @Autowired
+    private VerifyCodeProp verifyCodeProp;
+
+    @RequestMapping("/getVerifyCode")
+    public void getVerifyCode(HttpServletRequest rq, HttpServletResponse rs, HttpSession session) {
+
+        // 验证码图片高
+        int h = verifyCodeProp.getHigh();
+        // 验证码图片宽
+        int w = verifyCodeProp.getWidth();
+        // 验证码位数
+        int size = verifyCodeProp.getSize();
+        // 验证码生成字符源
+        String source = verifyCodeProp.getSource();
+        // 获取生成验证码
+        String code = VerifyCodeUtils.generateVerifyCode(size, source);
+        // 验证码输出到浏览器
+        try {
+            // 验证码保存在session中
+            VerifyCodeUtils.outputImage(w, h, rs, code);
+            WebUtils.setSessionVal(session, SessionKey.COOPAPPLY_VERIFY_CODE, code);
+            logger.info("session中放入的验证码为：{}", WebUtils.getSessionVal(session, SessionKey.COOPAPPLY_VERIFY_CODE, String.class));
+        } catch (IOException e) {
+            logger.error("生成验证码失败:{}", e);
+            e.printStackTrace();
+        }
+
+    }
+}

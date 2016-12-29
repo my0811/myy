@@ -1,0 +1,32 @@
+package com.zebra.box.db.service.demo.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.zebra.box.db.mapper.demo.UserMapper;
+import com.zebra.box.db.model.demo.User;
+import com.zebra.box.db.model.demo.UserDetail;
+import com.zebra.box.db.service.demo.UserService;
+@Service(value="userService")
+public class UserServiceImpl  implements UserService {
+	
+	@Autowired
+	private UserMapper userMpper;
+
+	@Override
+	public List<User> finUserList() {
+		// TODO Auto-generated method stub
+		return userMpper.findUserList();
+	}
+
+	@Override
+	public int addUser(User user, UserDetail userDetail) {
+		userMpper.addUserDetail(userDetail);
+		System.out.println(1/0);
+        userMpper.addUser(user);
+        return 1;
+	}
+
+}

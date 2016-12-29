@@ -1,0 +1,16 @@
+package com.zebra.box.constans;
+/**
+ * 
+ * @PackageName: com.zebra.box.constans  
+ * @FileName: DBSourceKey.java
+ * @ClassName: DBSourceKey
+ * @QualifiedName:com.zebra.box.constans.DBSourceKey  
+ * @Description: 数据源key常量类，对应在xml文件中声明的数据源
+ * @Author YangZhongKui yangzhongkui@diyfactory.com.cn  
+ * @Date 2015年12月11日 下午1:41:54  
+ * @Version V1.0
+ */
+public  interface DBSourceKey {
+	//储留箱数据源key
+	public  final static  String MYSQL_CLXBOX = "mySqlClxbox";
+}

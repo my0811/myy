@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxCommonContactwayMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxCommonContactway" useGeneratedKeys="true" keyProperty="contactId" >
+    INSERT INTO
+      CLX_COMMON_CONTACTWAY
+    (
+      contact_groupcode,
+      contact_groupname,
+      company_mail,
+      company_phone,
+      company_address,
+      company_qrcodeHref,
+      company_qrcodename,
+      company_qrcodeossfilename,
+      qrcodeimg_uuid,
+      idcard_ossfilename,
+      idcard_demand,
+      idcard_frontimguuid,
+      idcard_frontimgpath,
+      idcard_frontimgname,
+      idcard_backimg_uuid,
+      idcard_backimgpath,
+      idcard_backimgname,
+      employeecard_uuid,
+      employeecard_imgosspath,
+      employeecard_name,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag,
+      group_usedlock,
+      group_enabled
+    ) VALUES (
+      #{contactGroupcode},
+      #{contactGroupname},
+      #{companyMail},
+      #{companyPhone},
+      #{companyAddress},
+      #{companyQrcodehref},
+      #{companyQrcodename},
+      #{companyQrcodeossfilename},
+      #{qrcodeimgUuid},
+      #{idcardOssfilename},
+      #{idcardDemand},
+      #{idcardFrontimguuid},
+      #{idcardFrontimgpath},
+      #{idcardFrontimgname},
+      #{idcardBackimgUuid},
+      #{idcardBackimgpath},
+      #{idcardBackimgname},
+      #{employeecardUuid},
+      #{employeecardImgosspath},
+      #{employeecardName},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag},
+      #{groupUsedlock},
+      #{groupEnabled}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_COMMON_CONTACTWAY
+    WHERE
+      contact_id = #{contactId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCommonContactway" >
+    UPDATE
+      CLX_COMMON_CONTACTWAY
+    <set>
+      <if test="contactId != null">
+        contact_id = #{contactId},
+      </if>
+      <if test="contactGroupcode != null">
+        contact_groupcode = #{contactGroupcode},
+      </if>
+      <if test="contactGroupname != null">
+        contact_groupname = #{contactGroupname},
+      </if>
+      <if test="companyMail != null">
+        company_mail = #{companyMail},
+      </if>
+      <if test="companyPhone != null">
+        company_phone = #{companyPhone},
+      </if>
+      <if test="companyAddress != null">
+        company_address = #{companyAddress},
+      </if>
+      <if test="companyQrcodehref != null">
+        company_qrcodeHref = #{companyQrcodehref},
+      </if>
+      <if test="companyQrcodename != null">
+        company_qrcodename = #{companyQrcodename},
+      </if>
+      <if test="companyQrcodeossfilename != null">
+        company_qrcodeossfilename = #{companyQrcodeossfilename},
+      </if>
+      <if test="qrcodeimgUuid != null">
+        qrcodeimg_uuid = #{qrcodeimgUuid},
+      </if>
+      <if test="idcardOssfilename != null">
+        idcard_ossfilename = #{idcardOssfilename},
+      </if>
+      <if test="idcardDemand != null">
+        idcard_demand = #{idcardDemand},
+      </if>
+      <if test="idcardFrontimguuid != null">
+        idcard_frontimguuid = #{idcardFrontimguuid},
+      </if>
+      <if test="idcardFrontimgpath != null">
+        idcard_frontimgpath = #{idcardFrontimgpath},
+      </if>
+      <if test="idcardFrontimgname != null">
+        idcard_frontimgname = #{idcardFrontimgname},
+      </if>
+      <if test="idcardBackimgUuid != null">
+        idcard_backimg_uuid = #{idcardBackimgUuid},
+      </if>
+      <if test="idcardBackimgpath != null">
+        idcard_backimgpath = #{idcardBackimgpath},
+      </if>
+      <if test="idcardBackimgname != null">
+        idcard_backimgname = #{idcardBackimgname},
+      </if>
+      <if test="employeecardUuid != null">
+        employeecard_uuid = #{employeecardUuid},
+      </if>
+      <if test="employeecardImgosspath != null">
+        employeecard_imgosspath = #{employeecardImgosspath},
+      </if>
+      <if test="employeecardName != null">
+        employeecard_name = #{employeecardName},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+      <if test="groupUsedlock != null">
+        group_usedlock = #{groupUsedlock},
+      </if>
+      <if test="groupEnabled != null">
+        group_enabled = #{groupEnabled},
+      </if>
+    </set>
+    WHERE
+      contact_id = #{contactId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCommonContactway" >
+    UPDATE
+      CLX_COMMON_CONTACTWAY
+    SET
+      contact_id = #{contactId},
+      contact_groupcode = #{contactGroupcode},
+      contact_groupname = #{contactGroupname},
+      company_mail = #{companyMail},
+      company_phone = #{companyPhone},
+      company_address = #{companyAddress},
+      company_qrcodeHref = #{companyQrcodehref},
+      company_qrcodename = #{companyQrcodename},
+      company_qrcodeossfilename = #{companyQrcodeossfilename},
+      qrcodeimg_uuid = #{qrcodeimgUuid},
+      idcard_ossfilename = #{idcardOssfilename},
+      idcard_demand = #{idcardDemand},
+      idcard_frontimguuid = #{idcardFrontimguuid},
+      idcard_frontimgpath = #{idcardFrontimgpath},
+      idcard_frontimgname = #{idcardFrontimgname},
+      idcard_backimg_uuid = #{idcardBackimgUuid},
+      idcard_backimgpath = #{idcardBackimgpath},
+      idcard_backimgname = #{idcardBackimgname},
+      employeecard_uuid = #{employeecardUuid},
+      employeecard_imgosspath = #{employeecardImgosspath},
+      employeecard_name = #{employeecardName},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag},
+      group_usedlock = #{groupUsedlock},
+      group_enabled = #{groupEnabled}
+    WHERE
+      contact_id = #{contactId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxCommonContactway" >
+    SELECT
+      contact_id AS contactId,
+      contact_groupcode AS contactGroupcode,
+      contact_groupname AS contactGroupname,
+      company_mail AS companyMail,
+      company_phone AS companyPhone,
+      company_address AS companyAddress,
+      company_qrcodeHref AS companyQrcodehref,
+      company_qrcodename AS companyQrcodename,
+      company_qrcodeossfilename AS companyQrcodeossfilename,
+      qrcodeimg_uuid AS qrcodeimgUuid,
+      idcard_ossfilename AS idcardOssfilename,
+      idcard_demand AS idcardDemand,
+      idcard_frontimguuid AS idcardFrontimguuid,
+      idcard_frontimgpath AS idcardFrontimgpath,
+      idcard_frontimgname AS idcardFrontimgname,
+      idcard_backimg_uuid AS idcardBackimgUuid,
+      idcard_backimgpath AS idcardBackimgpath,
+      idcard_backimgname AS idcardBackimgname,
+      employeecard_uuid AS employeecardUuid,
+      employeecard_imgosspath AS employeecardImgosspath,
+      employeecard_name AS employeecardName,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag,
+      group_usedlock AS groupUsedlock,
+      group_enabled AS groupEnabled
+    FROM
+      CLX_COMMON_CONTACTWAY
+    WHERE
+      contact_id = #{contactId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxCommonContactway" resultType="com.zebra.box.db.model.ClxCommonContactway" >
+    SELECT
+      contact_id AS contactId,
+      contact_groupcode AS contactGroupcode,
+      contact_groupname AS contactGroupname,
+      company_mail AS companyMail,
+      company_phone AS companyPhone,
+      company_address AS companyAddress,
+      company_qrcodeHref AS companyQrcodehref,
+      company_qrcodename AS companyQrcodename,
+      company_qrcodeossfilename AS companyQrcodeossfilename,
+      qrcodeimg_uuid AS qrcodeimgUuid,
+      idcard_ossfilename AS idcardOssfilename,
+      idcard_demand AS idcardDemand,
+      idcard_frontimguuid AS idcardFrontimguuid,
+      idcard_frontimgpath AS idcardFrontimgpath,
+      idcard_frontimgname AS idcardFrontimgname,
+      idcard_backimg_uuid AS idcardBackimgUuid,
+      idcard_backimgpath AS idcardBackimgpath,
+      idcard_backimgname AS idcardBackimgname,
+      employeecard_uuid AS employeecardUuid,
+      employeecard_imgosspath AS employeecardImgosspath,
+      employeecard_name AS employeecardName,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag,
+      group_usedlock AS groupUsedlock,
+      group_enabled AS groupEnabled
+    FROM
+      CLX_COMMON_CONTACTWAY
+    WHERE
+      1 = 1
+      <if test="contactId != null">
+        AND contact_id = #{contactId}
+      </if>
+      <if test="contactGroupcode != null">
+        AND contact_groupcode = #{contactGroupcode}
+      </if>
+      <if test="contactGroupname != null">
+        AND contact_groupname = #{contactGroupname}
+      </if>
+      <if test="companyMail != null">
+        AND company_mail = #{companyMail}
+      </if>
+      <if test="companyPhone != null">
+        AND company_phone = #{companyPhone}
+      </if>
+      <if test="companyAddress != null">
+        AND company_address = #{companyAddress}
+      </if>
+      <if test="companyQrcodehref != null">
+        AND company_qrcodeHref = #{companyQrcodehref}
+      </if>
+      <if test="companyQrcodename != null">
+        AND company_qrcodename = #{companyQrcodename}
+      </if>
+      <if test="companyQrcodeossfilename != null">
+        AND company_qrcodeossfilename = #{companyQrcodeossfilename}
+      </if>
+      <if test="qrcodeimgUuid != null">
+        AND qrcodeimg_uuid = #{qrcodeimgUuid}
+      </if>
+      <if test="idcardOssfilename != null">
+        AND idcard_ossfilename = #{idcardOssfilename}
+      </if>
+      <if test="idcardDemand != null">
+        AND idcard_demand = #{idcardDemand}
+      </if>
+      <if test="idcardFrontimguuid != null">
+        AND idcard_frontimguuid = #{idcardFrontimguuid}
+      </if>
+      <if test="idcardFrontimgpath != null">
+        AND idcard_frontimgpath = #{idcardFrontimgpath}
+      </if>
+      <if test="idcardFrontimgname != null">
+        AND idcard_frontimgname = #{idcardFrontimgname}
+      </if>
+      <if test="idcardBackimgUuid != null">
+        AND idcard_backimg_uuid = #{idcardBackimgUuid}
+      </if>
+      <if test="idcardBackimgpath != null">
+        AND idcard_backimgpath = #{idcardBackimgpath}
+      </if>
+      <if test="idcardBackimgname != null">
+        AND idcard_backimgname = #{idcardBackimgname}
+      </if>
+      <if test="employeecardUuid != null">
+        AND employeecard_uuid = #{employeecardUuid}
+      </if>
+      <if test="employeecardImgosspath != null">
+        AND employeecard_imgosspath = #{employeecardImgosspath}
+      </if>
+      <if test="employeecardName != null">
+        AND employeecard_name = #{employeecardName}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+      <if test="groupUsedlock != null">
+        AND group_usedlock = #{groupUsedlock}
+      </if>
+      <if test="groupEnabled != null">
+        AND group_enabled = #{groupEnabled}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxCommonContactway" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_COMMON_CONTACTWAY
+    WHERE
+      1 = 1
+      <if test="contactId != null">
+        AND contact_id = #{contactId}
+      </if>
+      <if test="contactGroupcode != null">
+        AND contact_groupcode = #{contactGroupcode}
+      </if>
+      <if test="contactGroupname != null">
+        AND contact_groupname = #{contactGroupname}
+      </if>
+      <if test="companyMail != null">
+        AND company_mail = #{companyMail}
+      </if>
+      <if test="companyPhone != null">
+        AND company_phone = #{companyPhone}
+      </if>
+      <if test="companyAddress != null">
+        AND company_address = #{companyAddress}
+      </if>
+      <if test="companyQrcodehref != null">
+        AND company_qrcodeHref = #{companyQrcodehref}
+      </if>
+      <if test="companyQrcodename != null">
+        AND company_qrcodename = #{companyQrcodename}
+      </if>
+      <if test="companyQrcodeossfilename != null">
+        AND company_qrcodeossfilename = #{companyQrcodeossfilename}
+      </if>
+      <if test="qrcodeimgUuid != null">
+        AND qrcodeimg_uuid = #{qrcodeimgUuid}
+      </if>
+      <if test="idcardOssfilename != null">
+        AND idcard_ossfilename = #{idcardOssfilename}
+      </if>
+      <if test="idcardDemand != null">
+        AND idcard_demand = #{idcardDemand}
+      </if>
+      <if test="idcardFrontimguuid != null">
+        AND idcard_frontimguuid = #{idcardFrontimguuid}
+      </if>
+      <if test="idcardFrontimgpath != null">
+        AND idcard_frontimgpath = #{idcardFrontimgpath}
+      </if>
+      <if test="idcardFrontimgname != null">
+        AND idcard_frontimgname = #{idcardFrontimgname}
+      </if>
+      <if test="idcardBackimgUuid != null">
+        AND idcard_backimg_uuid = #{idcardBackimgUuid}
+      </if>
+      <if test="idcardBackimgpath != null">
+        AND idcard_backimgpath = #{idcardBackimgpath}
+      </if>
+      <if test="idcardBackimgname != null">
+        AND idcard_backimgname = #{idcardBackimgname}
+      </if>
+      <if test="employeecardUuid != null">
+        AND employeecard_uuid = #{employeecardUuid}
+      </if>
+      <if test="employeecardImgosspath != null">
+        AND employeecard_imgosspath = #{employeecardImgosspath}
+      </if>
+      <if test="employeecardName != null">
+        AND employeecard_name = #{employeecardName}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+      <if test="groupUsedlock != null">
+        AND group_usedlock = #{groupUsedlock}
+      </if>
+      <if test="groupEnabled != null">
+        AND group_enabled = #{groupEnabled}
+      </if>
+  </select>
+</mapper>

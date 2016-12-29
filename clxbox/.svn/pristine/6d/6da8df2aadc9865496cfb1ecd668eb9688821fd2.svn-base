@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxDistrictsettleImgLogMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxDistrictsettleImgLog" useGeneratedKeys="true" keyProperty="imgId" >
+    INSERT INTO
+      CLX_DISTRICTSETTLE_IMG_LOG
+    (
+      img_uuid,
+      img_osspath,
+      img_ossfilename,
+      img_name,
+      img_type,
+      img_usedlock,
+      log_operation_status,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{imgUuid},
+      #{imgOsspath},
+      #{imgOssfilename},
+      #{imgName},
+      #{imgType},
+      #{imgUsedlock},
+      #{logOperationStatus},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_DISTRICTSETTLE_IMG_LOG
+    WHERE
+      img_id = #{imgId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxDistrictsettleImgLog" >
+    UPDATE
+      CLX_DISTRICTSETTLE_IMG_LOG
+    <set>
+      <if test="imgId != null">
+        img_id = #{imgId},
+      </if>
+      <if test="imgUuid != null">
+        img_uuid = #{imgUuid},
+      </if>
+      <if test="imgOsspath != null">
+        img_osspath = #{imgOsspath},
+      </if>
+      <if test="imgOssfilename != null">
+        img_ossfilename = #{imgOssfilename},
+      </if>
+      <if test="imgName != null">
+        img_name = #{imgName},
+      </if>
+      <if test="imgType != null">
+        img_type = #{imgType},
+      </if>
+      <if test="imgUsedlock != null">
+        img_usedlock = #{imgUsedlock},
+      </if>
+      <if test="logOperationStatus != null">
+        log_operation_status = #{logOperationStatus},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      img_id = #{imgId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxDistrictsettleImgLog" >
+    UPDATE
+      CLX_DISTRICTSETTLE_IMG_LOG
+    SET
+      img_id = #{imgId},
+      img_uuid = #{imgUuid},
+      img_osspath = #{imgOsspath},
+      img_ossfilename = #{imgOssfilename},
+      img_name = #{imgName},
+      img_type = #{imgType},
+      img_usedlock = #{imgUsedlock},
+      log_operation_status = #{logOperationStatus},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      img_id = #{imgId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxDistrictsettleImgLog" >
+    SELECT
+      img_id AS imgId,
+      img_uuid AS imgUuid,
+      img_osspath AS imgOsspath,
+      img_ossfilename AS imgOssfilename,
+      img_name AS imgName,
+      img_type AS imgType,
+      img_usedlock AS imgUsedlock,
+      log_operation_status AS logOperationStatus,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_DISTRICTSETTLE_IMG_LOG
+    WHERE
+      img_id = #{imgId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxDistrictsettleImgLog" resultType="com.zebra.box.db.model.ClxDistrictsettleImgLog" >
+    SELECT
+      img_id AS imgId,
+      img_uuid AS imgUuid,
+      img_osspath AS imgOsspath,
+      img_ossfilename AS imgOssfilename,
+      img_name AS imgName,
+      img_type AS imgType,
+      img_usedlock AS imgUsedlock,
+      log_operation_status AS logOperationStatus,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_DISTRICTSETTLE_IMG_LOG
+    WHERE
+      1 = 1
+      <if test="imgId != null">
+        AND img_id = #{imgId}
+      </if>
+      <if test="imgUuid != null">
+        AND img_uuid = #{imgUuid}
+      </if>
+      <if test="imgOsspath != null">
+        AND img_osspath = #{imgOsspath}
+      </if>
+      <if test="imgOssfilename != null">
+        AND img_ossfilename = #{imgOssfilename}
+      </if>
+      <if test="imgName != null">
+        AND img_name = #{imgName}
+      </if>
+      <if test="imgType != null">
+        AND img_type = #{imgType}
+      </if>
+      <if test="imgUsedlock != null">
+        AND img_usedlock = #{imgUsedlock}
+      </if>
+      <if test="logOperationStatus != null">
+        AND log_operation_status = #{logOperationStatus}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxDistrictsettleImgLog" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_DISTRICTSETTLE_IMG_LOG
+    WHERE
+      1 = 1
+      <if test="imgId != null">
+        AND img_id = #{imgId}
+      </if>
+      <if test="imgUuid != null">
+        AND img_uuid = #{imgUuid}
+      </if>
+      <if test="imgOsspath != null">
+        AND img_osspath = #{imgOsspath}
+      </if>
+      <if test="imgOssfilename != null">
+        AND img_ossfilename = #{imgOssfilename}
+      </if>
+      <if test="imgName != null">
+        AND img_name = #{imgName}
+      </if>
+      <if test="imgType != null">
+        AND img_type = #{imgType}
+      </if>
+      <if test="imgUsedlock != null">
+        AND img_usedlock = #{imgUsedlock}
+      </if>
+      <if test="logOperationStatus != null">
+        AND log_operation_status = #{logOperationStatus}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

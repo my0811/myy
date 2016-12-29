@@ -1,0 +1,131 @@
+(function ($) {
+
+    var defaults = {
+        titleName: '职位名称',
+        titleDept: '工作部门',
+        titleTime: '发布时间',
+        jsonData: [{}]
+    }
+
+    $.fn.extend({
+        /**
+         * 显示列表
+         */
+        clxList: function (options) {
+
+            var options = $.extend(defaults, options);
+            // 为当前对象启别名，为了不和each中的this 冲突
+            var obj = $(this);
+            var ul = $('<ul class="clx-box-mid clx-common-list"></ul>');
+            var ul_li_title = $('<li class="clx-common-list-first clx-article-fontColor clx-font-m clx-font-bold"></li>');
+            var ul_li_title_span_name = $('<span></span>');
+            var ul_li_title_span_dept = $('<span></span>');
+            var ul_li_title_span_time = $('<span class="list-span"></span>');
+
+            ul.appendTo(obj);
+            ul_li_title.appendTo(ul);
+            ul_li_title_span_name.appendTo(ul_li_title);
+            ul_li_title_span_dept.appendTo(ul_li_title);
+            ul_li_title_span_time.appendTo(ul_li_title);
+
+            ul_li_title_span_name.html(options.titleName);
+            ul_li_title_span_dept.html(options.titleDept);
+            ul_li_title_span_time.html(options.titleTime);
+
+            $.each(options.jsonData, function (k, v) {
+                var ul_li_contents = $('<li></li>');
+                var ul_li_contents_span_name = $('<span></span>');
+                var ul_li_contents_span_name_a = $('<a class="popup_open" href="javascript:;"></a>');
+                var ul_li_contents_span_dept = $('<span></span>');
+                var ul_li_contents_span_time = $('<span class="list-span"></span>');
+
+                ul_li_contents.appendTo(ul);
+                ul_li_contents_span_name.appendTo(ul_li_contents);
+                ul_li_contents_span_dept.appendTo(ul_li_contents);
+                ul_li_contents_span_time.appendTo(ul_li_contents);
+                ul_li_contents_span_name_a.appendTo(ul_li_contents_span_name);
+
+                ul_li_contents_span_name_a.html(v.name);
+                ul_li_contents_span_dept.html(v.dept);
+                ul_li_contents_span_time.html(v.time);
+            });
+
+
+        }
+    });
+})(jQuery);
+
+/**
+ * 初始化 函数
+ */
+$(function () {
+    // 1 先加载List
+    $('#clxList').clxList({
+        jsonData: [{
+            name: '平面设计',
+            dept: '技术部',
+            time: '2015-08-26'
+        }, {
+            name: '网页美工',
+            dept: '技术部',
+            time: '2015-08-26'
+        }, {
+            name: 'web前端',
+            dept: '技术部',
+            time: '2015-08-26'
+        }, {
+            name: '后端',
+            dept: '技术部',
+            time: '2015-08-26'
+        }, {
+            name: 'ios开发',
+            dept: '技术部',
+            time: '2015-08-26'
+        }, {
+            name: '测试',
+            dept: '技术部',
+            time: '2015-08-26'
+        }, {
+            name: '安卓开发',
+            dept: '技术部',
+            time: '2015-08-26'
+        }, {
+            name: '运维工程师',
+            dept: '技术部',
+            time: '2015-08-26'
+        }, {
+            name: '市场推广',
+            dept: '市场部',
+            time: '2015-08-26'
+        }, {
+            name: '销售',
+            dept: '市场部',
+            time: '2015-08-26'
+        }, {
+            name: '客服专员',
+            dept: '市场部',
+            time: '2015-08-26'
+        }, {
+            name: '文案策划',
+            dept: '运营部',
+            time: '2015-08-26'
+        }, {
+            name: '新媒体运营',
+            dept: '运营部',
+            time: '2015-08-26'
+        }, {
+            name: '网点服务人员',
+            dept: '运营部',
+            time: '2015-08-26'
+        }, {
+            name: '人事经理',
+            dept: '人事部',
+            time: '2015-08-26'
+        }, {
+            name: '人事专员',
+            dept: '人事部',
+            time: '2015-08-26'
+        }]
+    });
+    $('#popup').popup();
+});

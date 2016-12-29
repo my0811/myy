@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxMapProvinceMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxMapProvince" useGeneratedKeys="true" keyProperty="provinceId" >
+    INSERT INTO
+      CLX_MAP_PROVINCE
+    (
+      province_code,
+      province_name,
+      city_code,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{provinceCode},
+      #{provinceName},
+      #{cityCode},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_MAP_PROVINCE
+    WHERE
+      province_id = #{provinceId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxMapProvince" >
+    UPDATE
+      CLX_MAP_PROVINCE
+    <set>
+      <if test="provinceId != null">
+        province_id = #{provinceId},
+      </if>
+      <if test="provinceCode != null">
+        province_code = #{provinceCode},
+      </if>
+      <if test="provinceName != null">
+        province_name = #{provinceName},
+      </if>
+      <if test="cityCode != null">
+        city_code = #{cityCode},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      province_id = #{provinceId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxMapProvince" >
+    UPDATE
+      CLX_MAP_PROVINCE
+    SET
+      province_id = #{provinceId},
+      province_code = #{provinceCode},
+      province_name = #{provinceName},
+      city_code = #{cityCode},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      province_id = #{provinceId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxMapProvince" >
+    SELECT
+      province_id AS provinceId,
+      province_code AS provinceCode,
+      province_name AS provinceName,
+      city_code AS cityCode,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_MAP_PROVINCE
+    WHERE
+      province_id = #{provinceId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxMapProvince" resultType="com.zebra.box.db.model.ClxMapProvince" >
+    SELECT
+      province_id AS provinceId,
+      province_code AS provinceCode,
+      province_name AS provinceName,
+      city_code AS cityCode,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_MAP_PROVINCE
+    WHERE
+      1 = 1
+      <if test="provinceId != null">
+        AND province_id = #{provinceId}
+      </if>
+      <if test="provinceCode != null">
+        AND province_code = #{provinceCode}
+      </if>
+      <if test="provinceName != null">
+        AND province_name = #{provinceName}
+      </if>
+      <if test="cityCode != null">
+        AND city_code = #{cityCode}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxMapProvince" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_MAP_PROVINCE
+    WHERE
+      1 = 1
+      <if test="provinceId != null">
+        AND province_id = #{provinceId}
+      </if>
+      <if test="provinceCode != null">
+        AND province_code = #{provinceCode}
+      </if>
+      <if test="provinceName != null">
+        AND province_name = #{provinceName}
+      </if>
+      <if test="cityCode != null">
+        AND city_code = #{cityCode}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

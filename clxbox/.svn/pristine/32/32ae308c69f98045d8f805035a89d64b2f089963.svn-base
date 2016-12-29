@@ -1,0 +1,8 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/jsp/common-base/common-base.jsp" %>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- -------------------------------------- -------------- ----------------------------------- -->
+<!-- -------------------------------------- 注意JS引入顺序 ----------------------------------- -->
+<!-- -------------------------------------- -------------- ----------------------------------- -->
+<script src="js/jquery1.11.3/jquery.min.js"></script>
+<script src="js/clx/clx-tools.js"></script>

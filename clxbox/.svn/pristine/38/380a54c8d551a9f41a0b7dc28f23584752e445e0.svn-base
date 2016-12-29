@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            margin: auto;
+        }
+
+        nav {
+            width: 100%;
+            background: black;
+            height: 62px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 3px solid #43af94;
+        }
+
+        .wrap {
+
+        }
+
+        header {
+
+        }
+
+        footer {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <nav></nav>
+    </header>
+</div>
+</body>
+</html>

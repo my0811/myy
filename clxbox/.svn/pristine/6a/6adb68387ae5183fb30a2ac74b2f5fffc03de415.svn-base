@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.demo.UserMapper">
+	<select id="findUserList" resultType="com.zebra.box.db.model.demo.User"
+		parameterType="string">
+		SELECT
+		tu.name,
+		tu.acccount,
+		tu.mobile,
+		tu.passWord,
+		tu.id
+		FROM
+		tb_user tu
+	</select>
+
+	<insert id="addUser" parameterType="com.zebra.box.db.model.demo.User">
+		INSERT INTO tb_user (
+		NAME,
+		acccount,
+		mobile,
+		passWord
+		)
+		VALUES
+		(
+		#{name},
+		#{acccount},
+		#{mobile},
+		#{passWord}
+		)
+	</insert>
+	<insert id="addUserDetail" parameterType="com.zebra.box.db.model.demo.UserDetail">
+		INSERT INTO
+		tb_user_detail (company, age, address)
+		VALUES
+		(#{company}, #{age}, #{address})
+	</insert>
+</mapper>   

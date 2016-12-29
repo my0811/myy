@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery1.11.3/jquery.min.js"></script>
+    <script src="js/clx/tools.js"></script>
+    <script>
+        $(function () {
+            $('.btn').btnDisabled();
+        });
+    </script>
+    <style>
+        .btn {
+            width: 103px;
+            height: 42px;
+            line-height: 42px;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            color: white;
+            background: #43af94;
+            font-size: 18px;
+            font-weight: normal;
+            font-family: "微软雅黑";
+            border: 0px;
+            border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 2px black;
+        }
+
+        .clx-sure-btn {
+            padding: 5px 10px;
+            font-size: 16px;
+            font-family: "微软雅黑";
+            font-weight: normal;
+            color: white;
+            background: #43af94;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .clx-default-btn {
+            padding: 5px 10px;
+            font-size: 16px;
+            font-family: "微软雅黑";
+            font-weight: normal;
+            color: white;
+            background: white;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #d6d6d6;
+            color: black;
+        }
+
+        .clx-checkCode-btn {
+            padding: 8px;
+            font-size: 12px;
+            font-family: "微软雅黑";
+            font-weight: normal;
+            color: white;
+            background: #43af94;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover, .clx-sure-btn:hover, .clx-checkCode-btn:hover {
+            background: #2a6455;
+            box-shadow: 0 0 5px black;
+        }
+
+        .clx-default-btn:hover {
+            background: #999;
+            color: white;
+        }
+
+        .clx-disable {
+            background: #788783 !important;
+            box-shadow: none !important;
+            color: white !important;
+            cursor: not-allowed !important;
+        }
+
+        .u-btns {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            position: relative;
+            padding-left: 1px;
+        }
+
+        .u-btns .u-btn {
+            float: left;
+            margin-left: -1px;
+            border-radius: 0;
+        }
+
+        .u-btns .u-btn:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .u-btns .u-btn:nth-last-of-type(1) {
+            border-radius: 0 5px 5px 0;
+        }
+
+        .u-btns .u-btn:only-of-type {
+            border-radius: 5px;
+        }
+
+        .u-btn {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            *overflow: visible;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            padding: 0 12px;
+            height: 28px;
+            line-height: 28px;
+            border: 1px solid #2d88bf;
+            border-radius: 5px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            word-spacing: normal;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
+            background: #54aede;
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6dbde4), to(#399dd8));
+            background: -webkit-linear-gradient(#6dbde4, #399dd8);
+            background: -moz-linear-gradient(#6dbde4, #399dd8);
+            background: -ms-linear-gradient(#6dbde4, #399dd8);
+            background: linear-gradient(#6dbde4, #399dd8);
+        }
+
+        .u-btn, .u-btn:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .u-btn:hover, .u-btn:focus {
+            background: #399dd8;
+        }
+
+        .u-btn:active {
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .u-btn::-moz-focus-inner {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        .u-btn .btntxt {
+            margin-right: 3px;
+            _vertical-align: middle;
+        }
+
+        .u-btn .btnsel {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            vertical-align: middle;
+            border-style: solid dashed dashed;
+            border-width: 4px 4px 0;
+            border-color: rgba(255, 255, 255, 0.8) transparent transparent;
+        }
+
+        .u-btn:hover .btnsel, .u-btn:focus .btnsel {
+            border-top-color: rgba(255, 255, 255, 1);
+        }
+
+        /* 灰色 */
+        .u-btn-c4 {
+            border-color: #d0d0d0;
+            text-shadow: 0 1px rgba(255, 255, 255, 0.8);
+            background: #f3f3f3;
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fefefe), to(#e7e7e7));
+            background: -webkit-linear-gradient(#fefefe, #e7e7e7);
+            background: -moz-linear-gradient(#fefefe, #e7e7e7);
+            background: -ms-linear-gradient(#fefefe, #e7e7e7);
+            background: linear-gradient(#fefefe, #e7e7e7);
+        }
+
+        .u-btn-c4, .u-btn-c4:hover {
+            color: #333;
+        }
+
+        .u-btn-c4:hover, .u-btn-c4:focus {
+            background: #e7e7e7;
+        }
+
+        .u-btn-c4 .btnsel {
+            border-top-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .u-btn-c4:hover .btnsel, .u-btn-c4:focus .btnsel {
+            border-top-color: rgba(0, 0, 0, 1);
+        }
+        /* 下拉式菜单-默认左对齐 */
+        .u-menu{display:none;position:absolute;z-index:100;top:100%;left:0;*zoom:1;*width:100px;margin:1px 0 0;overflow:hidden;border:1px solid #d0d0d0;border-width:1px 0;border-radius:5px;line-height:1.5;font-size:12px;box-shadow:0 5px 15px rgba(0,0,0,0.05);background:#fff;}
+        .u-menu li{border:1px solid #d0d0d0;border-width:0 1px;*vertical-align:top;}
+        .u-menu li a{display:block;*zoom:1;padding:7px 12px 6px;margin:-1px 0;border-top:1px solid #e8e8e8;overflow:hidden;*vertical-align:top;word-wrap:normal;white-space:nowrap;_white-space:normal;text-overflow:ellipsis;color:#333;}
+        .u-menu li:first-child,.u-menu li:first-child a{border-top:0;border-radius:5px 5px 0 0;}
+        .u-menu li:last-child,.u-menu li:last-child a{border-radius:0 0 5px 5px;}
+        .u-menu li a:hover{color:#333;background:#f7f7f7;}
+        .u-menu li a:active{background:#f0f0f0;}
+        /* 显示 */
+        .u-menu-show{display:block;}
+        /* 分组 */
+        .u-menu-gp li.menusep,.u-menu-gp li.menusep .menuline{height:0;line-height:0;font-size:0;overflow:hidden;}
+        .u-menu-gp li.menusep{padding:5px 0;}
+        .u-menu-gp li.menusep .menuline{display:block;border:0;border-top:1px solid #e8e8e8;}
+        .u-menu-gp li a{border:0;}
+        /* 宽度限制 */
+        .u-menu-min{min-width:100%;}
+        .u-menu-max{max-width:100%;}
+        /* 右对齐 */
+        .u-menu-rt{left:auto;right:0;}
+    </style>
+</head>
+<body>
+<a href="https:www.baidu.com" onclick="alert(1111)" class="btn disable" style="margin-bottom: 30px;">我是按钮</a>
+<a href="" disabled="disabled">我是按钮1</a>
+<input type="button" class="btn clx-disable" value="我是按钮" style="margin-bottom: 30px;"/>
+<input type="button" class="btn clx-disable" value="我是按钮" style="margin-bottom: 30px;"/>
+<span class="btn" style="margin-bottom: 30px;">我是按钮</span>
+<span class="clx-sure-btn">确定</span>
+<span class="clx-default-btn">取消</span>
+<span class="clx-checkCode-btn">发送验证码</span>
+
+<span class="u-btns">
+    <button type="button" class="u-btn u-btn-c4">灰色</button>
+    <button type="button" class="u-btn u-btn-c4">灰色</button>
+    <button type="button" class="u-btn u-btn-c4">灰色</button>
+    <button type="button" class="u-btn u-btn-c4">灰色</button>
+</span>
+<span class="u-btns">
+    <a type="button" class="u-btn u-btn-c4">灰色</a>
+    <a type="button" class="u-btn u-btn-c4"><span class="btnsel"></span></a>
+    <ul class="u-menu  u-menu-show">
+        <li><a href="#">至少撑满</a></li>
+        <li><a href="#">下拉式菜单项</a></li>
+        <li><a href="#">下拉式菜单项</a></li>
+        <li><a href="#">下拉式菜单项</a></li>
+    </ul>
+</span>
+</body>
+</html>

@@ -1,0 +1,4 @@
+verifyCode.source=23456789ABCDEFGHJKLMNPQRSTUVWXYZ
+verifyCode.size=4
+verifyCode.width=70
+verifyCode.high=32

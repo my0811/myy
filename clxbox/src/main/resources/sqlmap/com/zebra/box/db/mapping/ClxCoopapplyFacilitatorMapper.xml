@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxCoopapplyFacilitatorMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxCoopapplyFacilitator" useGeneratedKeys="true" keyProperty="facilitatorId" >
+    INSERT INTO
+      CLX_COOPAPPLY_FACILITATOR
+    (
+      facilitator_addrcode,
+      facilitator_name,
+      facilitator_introduction,
+      facilitator_linkman,
+      facilitator_linkmantel,
+      facilitator_linkmanmail,
+      facilitator_leaveword,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{facilitatorAddrcode},
+      #{facilitatorName},
+      #{facilitatorIntroduction},
+      #{facilitatorLinkman},
+      #{facilitatorLinkmantel},
+      #{facilitatorLinkmanmail},
+      #{facilitatorLeaveword},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_COOPAPPLY_FACILITATOR
+    WHERE
+      facilitator_id = #{facilitatorId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCoopapplyFacilitator" >
+    UPDATE
+      CLX_COOPAPPLY_FACILITATOR
+    <set>
+      <if test="facilitatorId != null">
+        facilitator_id = #{facilitatorId},
+      </if>
+      <if test="facilitatorAddrcode != null">
+        facilitator_addrcode = #{facilitatorAddrcode},
+      </if>
+      <if test="facilitatorName != null">
+        facilitator_name = #{facilitatorName},
+      </if>
+      <if test="facilitatorIntroduction != null">
+        facilitator_introduction = #{facilitatorIntroduction},
+      </if>
+      <if test="facilitatorLinkman != null">
+        facilitator_linkman = #{facilitatorLinkman},
+      </if>
+      <if test="facilitatorLinkmantel != null">
+        facilitator_linkmantel = #{facilitatorLinkmantel},
+      </if>
+      <if test="facilitatorLinkmanmail != null">
+        facilitator_linkmanmail = #{facilitatorLinkmanmail},
+      </if>
+      <if test="facilitatorLeaveword != null">
+        facilitator_leaveword = #{facilitatorLeaveword},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      facilitator_id = #{facilitatorId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCoopapplyFacilitator" >
+    UPDATE
+      CLX_COOPAPPLY_FACILITATOR
+    SET
+      facilitator_id = #{facilitatorId},
+      facilitator_addrcode = #{facilitatorAddrcode},
+      facilitator_name = #{facilitatorName},
+      facilitator_introduction = #{facilitatorIntroduction},
+      facilitator_linkman = #{facilitatorLinkman},
+      facilitator_linkmantel = #{facilitatorLinkmantel},
+      facilitator_linkmanmail = #{facilitatorLinkmanmail},
+      facilitator_leaveword = #{facilitatorLeaveword},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      facilitator_id = #{facilitatorId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxCoopapplyFacilitator" >
+    SELECT
+      facilitator_id AS facilitatorId,
+      facilitator_addrcode AS facilitatorAddrcode,
+      facilitator_name AS facilitatorName,
+      facilitator_introduction AS facilitatorIntroduction,
+      facilitator_linkman AS facilitatorLinkman,
+      facilitator_linkmantel AS facilitatorLinkmantel,
+      facilitator_linkmanmail AS facilitatorLinkmanmail,
+      facilitator_leaveword AS facilitatorLeaveword,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COOPAPPLY_FACILITATOR
+    WHERE
+      facilitator_id = #{facilitatorId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxCoopapplyFacilitator" resultType="com.zebra.box.db.model.ClxCoopapplyFacilitator" >
+    SELECT
+      facilitator_id AS facilitatorId,
+      facilitator_addrcode AS facilitatorAddrcode,
+      facilitator_name AS facilitatorName,
+      facilitator_introduction AS facilitatorIntroduction,
+      facilitator_linkman AS facilitatorLinkman,
+      facilitator_linkmantel AS facilitatorLinkmantel,
+      facilitator_linkmanmail AS facilitatorLinkmanmail,
+      facilitator_leaveword AS facilitatorLeaveword,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COOPAPPLY_FACILITATOR
+    WHERE
+      1 = 1
+      <if test="facilitatorId != null">
+        AND facilitator_id = #{facilitatorId}
+      </if>
+      <if test="facilitatorAddrcode != null">
+        AND facilitator_addrcode = #{facilitatorAddrcode}
+      </if>
+      <if test="facilitatorName != null">
+        AND facilitator_name = #{facilitatorName}
+      </if>
+      <if test="facilitatorIntroduction != null">
+        AND facilitator_introduction = #{facilitatorIntroduction}
+      </if>
+      <if test="facilitatorLinkman != null">
+        AND facilitator_linkman = #{facilitatorLinkman}
+      </if>
+      <if test="facilitatorLinkmantel != null">
+        AND facilitator_linkmantel = #{facilitatorLinkmantel}
+      </if>
+      <if test="facilitatorLinkmanmail != null">
+        AND facilitator_linkmanmail = #{facilitatorLinkmanmail}
+      </if>
+      <if test="facilitatorLeaveword != null">
+        AND facilitator_leaveword = #{facilitatorLeaveword}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxCoopapplyFacilitator" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_COOPAPPLY_FACILITATOR
+    WHERE
+      1 = 1
+      <if test="facilitatorId != null">
+        AND facilitator_id = #{facilitatorId}
+      </if>
+      <if test="facilitatorAddrcode != null">
+        AND facilitator_addrcode = #{facilitatorAddrcode}
+      </if>
+      <if test="facilitatorName != null">
+        AND facilitator_name = #{facilitatorName}
+      </if>
+      <if test="facilitatorIntroduction != null">
+        AND facilitator_introduction = #{facilitatorIntroduction}
+      </if>
+      <if test="facilitatorLinkman != null">
+        AND facilitator_linkman = #{facilitatorLinkman}
+      </if>
+      <if test="facilitatorLinkmantel != null">
+        AND facilitator_linkmantel = #{facilitatorLinkmantel}
+      </if>
+      <if test="facilitatorLinkmanmail != null">
+        AND facilitator_linkmanmail = #{facilitatorLinkmanmail}
+      </if>
+      <if test="facilitatorLeaveword != null">
+        AND facilitator_leaveword = #{facilitatorLeaveword}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

@@ -1,0 +1,18 @@
+package com.zebra.box.db.mapper.demo;
+
+import java.util.List;
+
+import com.zebra.box.constans.DBSourceKey;
+import com.zebra.box.db.model.demo.User;
+import com.zebra.box.db.model.demo.UserDetail;
+import com.zebra.framework.annotation.DataSourceTarget;
+@DataSourceTarget(sourceKey=DBSourceKey.MYSQL_LOCAL)
+public interface UserMapper {
+	//查询用户列表
+	List<User> findUserList();
+    //添加用户
+	int addUser(User user);
+	
+	int  addUserDetail(UserDetail userDetail);
+
+}

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxHelpFeedbackMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxHelpFeedback" useGeneratedKeys="true" keyProperty="feedbackId" >
+    INSERT INTO
+      CLX_HELP_FEEDBACK
+    (
+      feedback_prop_code,
+      feedback_prop_value,
+      feedback_othertext,
+      feedback_addrcode,
+      feedback_detailaddr,
+      isother_terminal,
+      feedback_suggest,
+      feedback_question,
+      feedback_regionalmanager,
+      feedback_regionalmanagertel,
+      feedback_askername,
+      feedback_askertel,
+      feedback_askermail,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{feedbackPropCode},
+      #{feedbackPropValue},
+      #{feedbackOthertext},
+      #{feedbackAddrcode},
+      #{feedbackDetailaddr},
+      #{isotherTerminal},
+      #{feedbackSuggest},
+      #{feedbackQuestion},
+      #{feedbackRegionalmanager},
+      #{feedbackRegionalmanagertel},
+      #{feedbackAskername},
+      #{feedbackAskertel},
+      #{feedbackAskermail},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Long" >
+    DELETE
+    FROM
+      CLX_HELP_FEEDBACK
+    WHERE
+      feedback_id = #{feedbackId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxHelpFeedback" >
+    UPDATE
+      CLX_HELP_FEEDBACK
+    <set>
+      <if test="feedbackId != null">
+        feedback_id = #{feedbackId},
+      </if>
+      <if test="feedbackPropCode != null">
+        feedback_prop_code = #{feedbackPropCode},
+      </if>
+      <if test="feedbackPropValue != null">
+        feedback_prop_value = #{feedbackPropValue},
+      </if>
+      <if test="feedbackOthertext != null">
+        feedback_othertext = #{feedbackOthertext},
+      </if>
+      <if test="feedbackAddrcode != null">
+        feedback_addrcode = #{feedbackAddrcode},
+      </if>
+      <if test="feedbackDetailaddr != null">
+        feedback_detailaddr = #{feedbackDetailaddr},
+      </if>
+      <if test="isotherTerminal != null">
+        isother_terminal = #{isotherTerminal},
+      </if>
+      <if test="feedbackSuggest != null">
+        feedback_suggest = #{feedbackSuggest},
+      </if>
+      <if test="feedbackQuestion != null">
+        feedback_question = #{feedbackQuestion},
+      </if>
+      <if test="feedbackRegionalmanager != null">
+        feedback_regionalmanager = #{feedbackRegionalmanager},
+      </if>
+      <if test="feedbackRegionalmanagertel != null">
+        feedback_regionalmanagertel = #{feedbackRegionalmanagertel},
+      </if>
+      <if test="feedbackAskername != null">
+        feedback_askername = #{feedbackAskername},
+      </if>
+      <if test="feedbackAskertel != null">
+        feedback_askertel = #{feedbackAskertel},
+      </if>
+      <if test="feedbackAskermail != null">
+        feedback_askermail = #{feedbackAskermail},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      feedback_id = #{feedbackId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxHelpFeedback" >
+    UPDATE
+      CLX_HELP_FEEDBACK
+    SET
+      feedback_id = #{feedbackId},
+      feedback_prop_code = #{feedbackPropCode},
+      feedback_prop_value = #{feedbackPropValue},
+      feedback_othertext = #{feedbackOthertext},
+      feedback_addrcode = #{feedbackAddrcode},
+      feedback_detailaddr = #{feedbackDetailaddr},
+      isother_terminal = #{isotherTerminal},
+      feedback_suggest = #{feedbackSuggest},
+      feedback_question = #{feedbackQuestion},
+      feedback_regionalmanager = #{feedbackRegionalmanager},
+      feedback_regionalmanagertel = #{feedbackRegionalmanagertel},
+      feedback_askername = #{feedbackAskername},
+      feedback_askertel = #{feedbackAskertel},
+      feedback_askermail = #{feedbackAskermail},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      feedback_id = #{feedbackId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Long" resultType="com.zebra.box.db.model.ClxHelpFeedback" >
+    SELECT
+      feedback_id AS feedbackId,
+      feedback_prop_code AS feedbackPropCode,
+      feedback_prop_value AS feedbackPropValue,
+      feedback_othertext AS feedbackOthertext,
+      feedback_addrcode AS feedbackAddrcode,
+      feedback_detailaddr AS feedbackDetailaddr,
+      isother_terminal AS isotherTerminal,
+      feedback_suggest AS feedbackSuggest,
+      feedback_question AS feedbackQuestion,
+      feedback_regionalmanager AS feedbackRegionalmanager,
+      feedback_regionalmanagertel AS feedbackRegionalmanagertel,
+      feedback_askername AS feedbackAskername,
+      feedback_askertel AS feedbackAskertel,
+      feedback_askermail AS feedbackAskermail,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_HELP_FEEDBACK
+    WHERE
+      feedback_id = #{feedbackId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxHelpFeedback" resultType="com.zebra.box.db.model.ClxHelpFeedback" >
+    SELECT
+      feedback_id AS feedbackId,
+      feedback_prop_code AS feedbackPropCode,
+      feedback_prop_value AS feedbackPropValue,
+      feedback_othertext AS feedbackOthertext,
+      feedback_addrcode AS feedbackAddrcode,
+      feedback_detailaddr AS feedbackDetailaddr,
+      isother_terminal AS isotherTerminal,
+      feedback_suggest AS feedbackSuggest,
+      feedback_question AS feedbackQuestion,
+      feedback_regionalmanager AS feedbackRegionalmanager,
+      feedback_regionalmanagertel AS feedbackRegionalmanagertel,
+      feedback_askername AS feedbackAskername,
+      feedback_askertel AS feedbackAskertel,
+      feedback_askermail AS feedbackAskermail,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_HELP_FEEDBACK
+    WHERE
+      1 = 1
+      <if test="feedbackId != null">
+        AND feedback_id = #{feedbackId}
+      </if>
+      <if test="feedbackPropCode != null">
+        AND feedback_prop_code = #{feedbackPropCode}
+      </if>
+      <if test="feedbackPropValue != null">
+        AND feedback_prop_value = #{feedbackPropValue}
+      </if>
+      <if test="feedbackOthertext != null">
+        AND feedback_othertext = #{feedbackOthertext}
+      </if>
+      <if test="feedbackAddrcode != null">
+        AND feedback_addrcode = #{feedbackAddrcode}
+      </if>
+      <if test="feedbackDetailaddr != null">
+        AND feedback_detailaddr = #{feedbackDetailaddr}
+      </if>
+      <if test="isotherTerminal != null">
+        AND isother_terminal = #{isotherTerminal}
+      </if>
+      <if test="feedbackSuggest != null">
+        AND feedback_suggest = #{feedbackSuggest}
+      </if>
+      <if test="feedbackQuestion != null">
+        AND feedback_question = #{feedbackQuestion}
+      </if>
+      <if test="feedbackRegionalmanager != null">
+        AND feedback_regionalmanager = #{feedbackRegionalmanager}
+      </if>
+      <if test="feedbackRegionalmanagertel != null">
+        AND feedback_regionalmanagertel = #{feedbackRegionalmanagertel}
+      </if>
+      <if test="feedbackAskername != null">
+        AND feedback_askername = #{feedbackAskername}
+      </if>
+      <if test="feedbackAskertel != null">
+        AND feedback_askertel = #{feedbackAskertel}
+      </if>
+      <if test="feedbackAskermail != null">
+        AND feedback_askermail = #{feedbackAskermail}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxHelpFeedback" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_HELP_FEEDBACK
+    WHERE
+      1 = 1
+      <if test="feedbackId != null">
+        AND feedback_id = #{feedbackId}
+      </if>
+      <if test="feedbackPropCode != null">
+        AND feedback_prop_code = #{feedbackPropCode}
+      </if>
+      <if test="feedbackPropValue != null">
+        AND feedback_prop_value = #{feedbackPropValue}
+      </if>
+      <if test="feedbackOthertext != null">
+        AND feedback_othertext = #{feedbackOthertext}
+      </if>
+      <if test="feedbackAddrcode != null">
+        AND feedback_addrcode = #{feedbackAddrcode}
+      </if>
+      <if test="feedbackDetailaddr != null">
+        AND feedback_detailaddr = #{feedbackDetailaddr}
+      </if>
+      <if test="isotherTerminal != null">
+        AND isother_terminal = #{isotherTerminal}
+      </if>
+      <if test="feedbackSuggest != null">
+        AND feedback_suggest = #{feedbackSuggest}
+      </if>
+      <if test="feedbackQuestion != null">
+        AND feedback_question = #{feedbackQuestion}
+      </if>
+      <if test="feedbackRegionalmanager != null">
+        AND feedback_regionalmanager = #{feedbackRegionalmanager}
+      </if>
+      <if test="feedbackRegionalmanagertel != null">
+        AND feedback_regionalmanagertel = #{feedbackRegionalmanagertel}
+      </if>
+      <if test="feedbackAskername != null">
+        AND feedback_askername = #{feedbackAskername}
+      </if>
+      <if test="feedbackAskertel != null">
+        AND feedback_askertel = #{feedbackAskertel}
+      </if>
+      <if test="feedbackAskermail != null">
+        AND feedback_askermail = #{feedbackAskermail}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

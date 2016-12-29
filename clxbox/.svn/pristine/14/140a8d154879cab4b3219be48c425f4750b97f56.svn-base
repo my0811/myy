@@ -1,0 +1,73 @@
+package com.zebra.box.db.mapper;
+
+import java.util.List;
+
+import com.zebra.box.db.model.ClxCommonMsgcenteLog;
+
+/**
+ * <pre>
+ * =============================================================================
+ * 日期：yyyyMMdd  担当:
+ * 内容:
+ * =============================================================================
+ * </pre>
+ * 
+ */
+public interface ClxCommonMsgcenteLogMapper {
+
+    /**
+     * 插入
+     * 
+     * @param clxCommonMsgcenteLog
+     * @return returnCode
+     */
+    int insert(ClxCommonMsgcenteLog clxCommonMsgcenteLog);
+
+    /**
+     * 删除通过主键
+     * 
+     * @param msgcenterId
+     * @return returnCode
+     */
+    int deleteByPrimaryKey(Integer msgcenterId);
+
+    /**
+     * 单件更新通过主键(全更新)
+     * 
+     * @param clxCommonMsgcenteLog
+     * @return returnCode
+     */
+    int updateAllByPrimaryKey(ClxCommonMsgcenteLog clxCommonMsgcenteLog);
+
+    /**
+     * 单件更新通过主键(部分更新)
+     * 
+     * @param clxCommonMsgcenteLog
+     * @return returnCode
+     */
+    int updateByPrimaryKey(ClxCommonMsgcenteLog clxCommonMsgcenteLog);
+
+    /**
+     * 单件检索通过主键
+     * 
+     * @param msgcenterId
+     * @return clxCommonMsgcenteLog
+     */
+    ClxCommonMsgcenteLog selectOneByPrimaryKey(Integer msgcenterId);
+
+    /**
+     * 检索列表
+     * 
+     * @param clxCommonMsgcenteLog
+     * @return clxCommonMsgcenteLogList
+     */
+    List<ClxCommonMsgcenteLog> selectList(ClxCommonMsgcenteLog clxCommonMsgcenteLog);
+
+    /**
+     * 检索件数
+     * 
+     * @param clxCommonMsgcenteLog
+     * @return count
+     */
+    int selectCount(ClxCommonMsgcenteLog clxCommonMsgcenteLog);
+}

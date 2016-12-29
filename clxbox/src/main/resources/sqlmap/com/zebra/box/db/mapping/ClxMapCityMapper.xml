@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxMapCityMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxMapCity" useGeneratedKeys="true" keyProperty="cityId" >
+    INSERT INTO
+      CLX_MAP_CITY
+    (
+      city_code,
+      city_name,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{cityCode},
+      #{cityName},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_MAP_CITY
+    WHERE
+      city_id = #{cityId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxMapCity" >
+    UPDATE
+      CLX_MAP_CITY
+    <set>
+      <if test="cityId != null">
+        city_id = #{cityId},
+      </if>
+      <if test="cityCode != null">
+        city_code = #{cityCode},
+      </if>
+      <if test="cityName != null">
+        city_name = #{cityName},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      city_id = #{cityId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxMapCity" >
+    UPDATE
+      CLX_MAP_CITY
+    SET
+      city_id = #{cityId},
+      city_code = #{cityCode},
+      city_name = #{cityName},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      city_id = #{cityId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxMapCity" >
+    SELECT
+      city_id AS cityId,
+      city_code AS cityCode,
+      city_name AS cityName,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_MAP_CITY
+    WHERE
+      city_id = #{cityId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxMapCity" resultType="com.zebra.box.db.model.ClxMapCity" >
+    SELECT
+      city_id AS cityId,
+      city_code AS cityCode,
+      city_name AS cityName,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_MAP_CITY
+    WHERE
+      1 = 1
+      <if test="cityId != null">
+        AND city_id = #{cityId}
+      </if>
+      <if test="cityCode != null">
+        AND city_code = #{cityCode}
+      </if>
+      <if test="cityName != null">
+        AND city_name = #{cityName}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxMapCity" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_MAP_CITY
+    WHERE
+      1 = 1
+      <if test="cityId != null">
+        AND city_id = #{cityId}
+      </if>
+      <if test="cityCode != null">
+        AND city_code = #{cityCode}
+      </if>
+      <if test="cityName != null">
+        AND city_name = #{cityName}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxReceptionServercenterMsgMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxReceptionServercenterMsg" useGeneratedKeys="true" keyProperty="msgId" >
+    INSERT INTO
+      CLX_RECEPTION_SERVERCENTER_MSG
+    (
+      msg_title,
+      msg_text,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{msgTitle},
+      #{msgText},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_RECEPTION_SERVERCENTER_MSG
+    WHERE
+      msg_id = #{msgId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxReceptionServercenterMsg" >
+    UPDATE
+      CLX_RECEPTION_SERVERCENTER_MSG
+    <set>
+      <if test="msgId != null">
+        msg_id = #{msgId},
+      </if>
+      <if test="msgTitle != null">
+        msg_title = #{msgTitle},
+      </if>
+      <if test="msgText != null">
+        msg_text = #{msgText},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      msg_id = #{msgId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxReceptionServercenterMsg" >
+    UPDATE
+      CLX_RECEPTION_SERVERCENTER_MSG
+    SET
+      msg_id = #{msgId},
+      msg_title = #{msgTitle},
+      msg_text = #{msgText},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      msg_id = #{msgId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxReceptionServercenterMsg" >
+    SELECT
+      msg_id AS msgId,
+      msg_title AS msgTitle,
+      msg_text AS msgText,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_RECEPTION_SERVERCENTER_MSG
+    WHERE
+      msg_id = #{msgId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxReceptionServercenterMsg" resultType="com.zebra.box.db.model.ClxReceptionServercenterMsg" >
+    SELECT
+      msg_id AS msgId,
+      msg_title AS msgTitle,
+      msg_text AS msgText,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_RECEPTION_SERVERCENTER_MSG
+    WHERE
+      1 = 1
+      <if test="msgId != null">
+        AND msg_id = #{msgId}
+      </if>
+      <if test="msgTitle != null">
+        AND msg_title = #{msgTitle}
+      </if>
+      <if test="msgText != null">
+        AND msg_text = #{msgText}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxReceptionServercenterMsg" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_RECEPTION_SERVERCENTER_MSG
+    WHERE
+      1 = 1
+      <if test="msgId != null">
+        AND msg_id = #{msgId}
+      </if>
+      <if test="msgTitle != null">
+        AND msg_title = #{msgTitle}
+      </if>
+      <if test="msgText != null">
+        AND msg_text = #{msgText}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

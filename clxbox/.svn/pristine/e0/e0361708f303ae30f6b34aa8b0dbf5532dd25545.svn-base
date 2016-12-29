@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <a href="javascript:;" class="clx-upload" style="width:200px;">选择文件
+        <input type="file" name="" id="" value="选择文件">
+    </a>
+</body>
+</html>

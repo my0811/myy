@@ -1,0 +1,10 @@
+package com.zebra.box.constans;
+
+public  interface DBSourceKey {
+	//本地数据源
+	public  final static  String MYSQL_LOCAL = "mySqlDataSourceLocal";
+	public  final static  String MYSQL_206 = "mySqlDataSource206";
+
+
+
+}

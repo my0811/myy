@@ -1,0 +1,27 @@
+package com.zebra.box.controller.help;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * 加入我们模块
+ * 
+ * @author 毛巳煜
+ */
+@Controller
+@RequestMapping("/helpController")
+public class HelpController {
+
+    @RequestMapping("/initHelp")
+    public String initHelp() {
+
+        return "help";
+    }
+
+    @RequestMapping("/insertHelp")
+    public String insertHelp() {
+
+        return "help";
+    }
+
+}

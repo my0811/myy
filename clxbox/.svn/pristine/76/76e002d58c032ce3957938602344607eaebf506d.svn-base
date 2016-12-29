@@ -1,0 +1,19 @@
+package com.zebra.box.db.service.demo;
+
+import java.util.List;
+
+import com.zebra.box.constans.DBSourceKey;
+import com.zebra.box.db.model.demo.User;
+import com.zebra.box.db.model.demo.UserDetail;
+import com.zebra.framework.annotation.TransactionSource;
+
+
+public interface UserService {
+	//查询用户列表
+	List<User>finUserList();
+	
+	//添加用户
+    @TransactionSource(sourceKey = DBSourceKey.MYSQL_LOCAL)
+	int addUser(User user,UserDetail userDetail);
+
+}

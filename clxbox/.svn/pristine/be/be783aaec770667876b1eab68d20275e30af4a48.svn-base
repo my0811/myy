@@ -1,0 +1,220 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head lang="zh-CN">
+<meta charset="utf-8" />
+<%@ include file="common-css/common-css.jsp"%>
+<%@ include file="common-js/common-js.jsp"%>
+<title>大连九江泰科技有限公司</title>
+<meta name="keywords" content="" />
+<meta name="description" content="大连九江泰科技有限公司官网" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width" />
+<link href="./img/clx-box.ico" mce_href="./img/clx-box.ico" rel="bookmark" type="image/x-icon" />
+<link href="./img/clx-box.ico" mce_href="./img/clx-box.ico" rel="icon" type="image/x-icon" />
+<link href="./img/clx-box.ico" mce_href="./img/clx-box.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="./img/clx-box.png" mce_href="./img/clx-box.ico" rel="apple-touch-icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+<link rel="stylesheet" type="text/css" href="./css/function.css" />
+<link rel="stylesheet" type="text/css" href="./css/reverb-app.css" />
+<script src="js/clx/clx-validate.js"></script>
+<script src="js/clx/$.message.min.js"></script>
+<script src="js/clx/clx-coopApply.js"></script>
+<!--[if lt IE 9]>
+    <script src="./js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <%@ include file="common-base/common-navigate.jsp"%>
+      <!-- 标记当前页面的url -->
+      <input id="pageMark" type="hidden" value="coopApplyController/initCoopApply" />
+      <div class="clx-staticImg-box clx-box-mid" style="background: url('./img/clx-apply.jpg')"></div>
+    </header>
+    <article class="clx-supper-article clx-box-mid">
+      <!-- 储留箱入驻申请 -->
+      <div class="clx-paragraph">
+        <div class="clx-paragraph-title clx-position-father">
+          <div class="clx-fl">
+            <h4 class="clx-font-bold clx-font-xl clx-article-fontColor">储留箱入驻申请</h4>
+          </div>
+          <span class="clx-fold-down clx-position-son"> </span> <span class="clx-clear"></span>
+        </div>
+        <div class="clx-paragraph-article clx-display">
+          <form action="" class="clx-common-form" autocomplete="off">
+            <ul>
+              <li><label>您的身份:</label>
+                <div class="clx-clear"></div> <span class="input-check-part"> <input id="form1-check-1" name="xxx" type="radio" checked /><label
+                  for="form1-check-1">物业</label>
+              </span> <span class="input-check-part"> <input id="form1-check-2" name="xxx" type="radio" /><label for="form1-check-2">业主</label>
+              </span> <span class="input-check-part"> <input id="form1-check-3" name="xxx" type="radio" /><label for="form1-check-3">快递员</label>
+              </span> <span class="input-check-part"> <input id="form1-order" name="xxx" type="radio" /><label for="form1-order">其它</label>
+              </span> <span class="clx-input-group"> <input name="another" type="text" style="width: 90px;" disabled="disabled" />
+              </span></li>
+            </ul>
+            <ul>
+              <li><label>您所在的区域名称:</label> <input type="text" validate="isNotNull: true" /></li>
+              <li><label>区域详细地址:</label> <input type="text" validate="isNotNull: true" /></li>
+              <li><label>您想申请储留箱入驻的原因:</label> <input type="text" validate="isNotNull: true" /></li>
+              <li><label>区域负责人:</label> <input type="text" /></li>
+              <li><label>区域负责人联系电话:</label> <input type="text" /></li>
+              <li><label>您的姓名:</label> <input type="text" /></li>
+              <li><label>您的电话:</label> <input type="text" /></li>
+              <li><label>您的邮箱:</label> <input type="text" /> <small>
+                  （所有提交申请的用户均有机会出现在我们的年度页面，并收到储留箱送给您的致谢礼物，为此，请您留下正确的联系方式，方便我们联系您。同时，储留箱承诺不会泄露您的任何信息） </small></li>
+            </ul>
+            <div class="clx-inline-checkCode clx-box-mid">
+              <label for="checkCode">验证码:</label> <input id="checkCode" class="input-style" type="text" /> <a class="clx-checkCode-img" href="#"><img
+                src="./img/checkCode.jpg" alt="验证码图片" /></a>
+            </div>
+            <div class="clx-btn-box clx-box-mid">
+              <input type="button" href="javascript:;" class="btn" id="okSubmit1" value="确认提交" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- 商户合作（线下商家） -->
+      <div class="clx-paragraph">
+        <div class="clx-paragraph-title clx-position-father">
+          <div class="clx-fl">
+            <h4 class="clx-font-bold clx-font-xl clx-article-fontColor">商户合作（线下商家）</h4>
+          </div>
+          <span class="clx-fold-down clx-position-son"> </span> <span class="clx-clear"></span>
+        </div>
+        <div class="clx-paragraph-article clx-display">
+          <h4 class="clx-article-fontColor clx-font-ml">第三方商户，一站式服务</h4>
+          <div class="clx-paragraph-form-box">
+            <form action="" class="clx-common-form" autocomplete="off">
+              <ul>
+                <li><label>请选择分类：</label>
+                  <div class="clx-clear"></div> <span class="input-check-part"> <input id="form2-check-1" name="xxx" type="radio" checked /><label
+                    for="form2-check-1">报刊杂志</label>
+                </span> <span class="input-check-part"> <input id="form2-check-2" name="xxx" type="radio" /><label for="form2-check-2">蔬菜水果</label>
+                </span> <span class="input-check-part"> <input id="form2-check-3" name="xxx" type="radio" /><label for="form2-check-3">日用品</label>
+                </span> <span class="input-check-part"> <input id="form2-check-4" name="xxx" type="radio" /><label for="form2-check-4">牛奶</label>
+                </span> <span class="input-check-part"> <input id="form2-check-5" name="xxx" type="radio" /><label for="form2-check-5">自助洗衣店</label>
+                </span> <span class="input-check-part"> <input id="form2-check-6" name="xxx" type="radio" /><label for="form2-check-6">超市打折促销活动信息</label>
+                </span> <span class="input-check-part"> <input id="form2-order" name="xxx" type="radio" /><label for="form2-order">其它</label>
+                </span> <span class="clx-input-group"> <input name="another" type="text" style="width: 90px;" disabled="disabled" />
+                </span></li>
+                <li>
+                  <h4 class="clx-article-fontColor clx-font-ml">商户登记表</h4> <label>商户名称:</label> <input type="text" validate="isNotNull: true" />
+                </li>
+                <li><label>经营范围:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li>
+                  <div class="text-common-group">
+                    <span>申请区域:（目前限大连市）</span> <input type="text" style="width: 140px;" validate="isNotNull: true" />
+                    <div style="width: 40px; margin-left: 10px;">区</div>
+                    <input type="text" style="width: 200px;" validate="isNotNull: true" />
+                    <div style="width: 60px; margin-left: 10px;">街道</div>
+                    <input type="text" style="width: 455px;" validate="isNotNull: true" />
+                  </div>
+                  <div class="clx-clear"></div>
+                </li>
+                <li><label>申请内容:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li><label>商户地址:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li><label>商户座机:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li><label>联系人:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li><label>联系方式:</label> <input type="text" validate="isNotNull: true" /></li>
+              </ul>
+              <div class="clx-inline-checkCode clx-box-mid">
+                <label for="checkCode">验证码:</label> 
+                <input id="checkCode" class="input-style" type="text" style="width: 90px;" /> 
+                <a class="clx-checkCode-img" id ="verifyCode" href="javascript:;" >
+                  <img src="./img/checkCode.jpg" alt="验证码图片" />
+                </a>
+              </div>
+              <div class="clx-btn-box clx-box-mid">
+                <input type="button" href="javascript:;" class="btn" id="okSubmit2" value="确认提交" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 全国服务商 -->
+      <div class="clx-paragraph">
+        <div class="clx-paragraph-title clx-position-father">
+          <div class="clx-fl">
+            <h4 class="clx-font-bold clx-font-xl clx-article-fontColor">全国服务商</h4>
+          </div>
+          <span class="clx-fold-down clx-position-son"> </span> <span class="clx-clear"></span>
+        </div>
+        <div class="clx-paragraph-article clx-display">
+          <div class="clx-paragraph-img clx-box-mid">
+            <img src="./img/sjhz.jpg" alt="申请合作" />
+          </div>
+          <div class="clx-paragraph-form-box">
+            <form class="clx-common-form" autocomplete="off">
+              <ul>
+                <li><label>合作地域:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li><label>企业全称:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li>
+                  <div class="clx-textare-group">
+                    <label>企业简介</label>
+                    <textarea style="width: 922px" validate="isNotNull: true"></textarea>
+                  </div>
+                </li>
+                <li><label>联系人:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li><label>联系方式:</label> <input type="text" validate="isNotNull: true" /></li>
+                <li><label>企业邮箱:</label> <input type="text" validate="isNotNull: true" /></li>
+                <div class="clx-textare-group">
+                  <label>留言:</label>
+                  <textarea style="width: 922px" validate="isNotNull: true"></textarea>
+                </div>
+                </li>
+              </ul>
+              <div class="clx-inline-checkCode clx-box-mid">
+                <label for="checkCode">验证码:</label> <input id="checkCode" class="input-style" type="text" style="width: 90px;" /> <a class="clx-checkCode-img"
+                  href="#"><img src="./img/checkCode.jpg" alt="验证码图片" /></a>
+              </div>
+              <div class="clx-btn-box clx-box-mid">
+                <input type="button" href="javascript:;" class="btn" id="okSubmit3" value="确认提交" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </article>
+    <footer>
+      <div class="clx-footer clx-box-mid">
+        <div class="clx-footer-box clx-fl">
+          <h4 class="clx-font-ml clx-font-bold clx-article-fontColor clx-SYfont-famliy">联系我们</h4>
+          <span class="clx-SYfont-famliy clx-font-m clx-block">地址:大连市沙河口区西安路</span> <span class="clx-SYfont-famliy clx-font-m clx-block">电话:4000-999-105</span>
+          <span class="clx-SYfont-famliy clx-font-m clx-block">邮箱:clx@clxbox.com</span>
+          <div class="clx-clear"></div>
+        </div>
+        <div class="clx-footer-box clx-fr">
+          <ul class="clx-footer-box-padding">
+            <li class="clx-fl"><a class="clx-banner-box clx-blog" href="http://weibo.com/clxbox" target="_blank"></a>
+              <p class="clx-font-s clx-article-fontColor">新浪微博</p></li>
+            <li class="clx-fl"><span class="clx-banner-box clx-weixin"></span>
+              <p class="clx-font-s clx-article-fontColor">微信平台</p></li>
+            <li class="clx-fl clx-li-last"><img src="./img/clx-qr-code.jpg" alt="网站二维码" /></li>
+          </ul>
+        </div>
+        <div class="clx-clear"></div>
+      </div>
+      <div class="clx-footer-finshed">
+        <p class="clx-btn-fontColor clx-font-xs">
+          Copyright © 2015
+          <mark>
+            <strong>大连九江泰科技有限公司</strong>
+          </mark>
+          All Rights Reserved
+        </p>
+        <p class="clx-btn-fontColor clx-font-xs">辽ICP备10000000号 辽公网安备11000000000000</p>
+        <div class="clx-friend-href clx-box-mid">
+          <ul class="clx-box-mid">
+            <span class="clx-fl"> 友情链接:</span>
+            <li><a href="http://m.kuaidi100.com" target="_blank">快递查询</a></li>
+            <li><a href="http://map.baidu.com/" target="_blank">百度地图</a></li>
+            <li><a href="http://m.kuaidi100.com" target="_blank">斑马科技</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+xmlns:aop="http://www.springframework.org/schema/aop"  
+xmlns:c="http://www.springframework.org/schema/c"  
+xmlns:cache="http://www.springframework.org/schema/cache"  
+xmlns:context="http://www.springframework.org/schema/context"  
+xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+xmlns:jee="http://www.springframework.org/schema/jee"  
+xmlns:lang="http://www.springframework.org/schema/lang"  
+xmlns:mvc="http://www.springframework.org/schema/mvc"  
+xmlns:p="http://www.springframework.org/schema/p"  
+xmlns:task="http://www.springframework.org/schema/task"  
+xmlns:tx="http://www.springframework.org/schema/tx"  
+xmlns:util="http://www.springframework.org/schema/util"  
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd  
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  
+http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd  
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd  
+http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd  
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd  
+http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd  
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd  
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- 事物控制 采用 spring jdbc 的事务控制 -->
+	
+	<!-- 数据源动态分配 aop service 事物 -->
+	<bean id="transationDataSourceExchange" class="com.zebra.framework.aop.TransactionAdvice"/>
+	
+	<!-- 动态数据源mapper aop  -->
+	<bean id ="multipleDataSourceAspectAdvice" class="com.zebra.framework.aop.MultipleDataSourceAspectAdvice"></bean>
+	
+	<!-- 事务管理类 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="multipleDataSource"/>
+	</bean>
+	
+	<!-- 通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:attributes>
+		<!-- 	REQUIRED 必须需要事务 -->  
+		<tx:method name="add*" propagation="REQUIRED"/>
+		<tx:method name="delete*" propagation="REQUIRED"/>
+		<tx:method name="edit*" propagation="REQUIRED"/>
+		<!-- 	支持  只读事务 -->
+	<!-- 	<tx:method name="*" propagation="SUPPORTS" read-only="true"/> -->
+	</tx:attributes>
+	</tx:advice>
+	<!-- 	aop  调用通知 -->
+	<aop:config > 
+	<!-- 事物通知调用 -->
+	<aop:advisor advice-ref="txAdvice" pointcut="
+		execution(* com.zebra.box.db.service..*.add*(..)) 
+		or execution(* com.zebra.box.db.service..*.delete*(..)) 
+		or execution(* com.zebra.box.db.service..*.edit*(..))" order="2"/>
+	<!-- 拦截所有service 方法  清空数据源key,根据方法注解为事务准备数据源-->
+	<aop:advisor advice-ref="transationDataSourceExchange" pointcut="
+		execution(* com.zebra.box.db.service..*.add*(..)) 
+		or execution(* com.zebra.box.db.service..*.delete*(..)) 
+		or execution(* com.zebra.box.db.service..*.edit*(..))" order="1"/>
+	</aop:config>
+	<!-- mapper 数据源选择 -->
+	<aop:config > 
+	<aop:advisor advice-ref="multipleDataSourceAspectAdvice" pointcut="execution(* com.zebra.box.db.mapper..*.*(..)))" order="1"/>
+	</aop:config>
+	
+</beans>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxHelpCourierregistMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxHelpCourierregist" useGeneratedKeys="true" keyProperty="courierRegistId" >
+    INSERT INTO
+      CLX_HELP_COURIERREGIST
+    (
+      courier_serialcode,
+      courier_name,
+      courier_idcard,
+      courier_phone,
+      prop_code,
+      prop_value,
+      courier_region_code,
+      idcard_filename,
+      frontimg_uuid,
+      frontimg_osspath,
+      frontimg_name,
+      backimg_uuid,
+      backimg_osspath,
+      backimg_name,
+      employeecard_uuid,
+      employeecard_osspath,
+      employeecard_name,
+      courier_regist_isagreement,
+      courier_isregist,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{courierSerialcode},
+      #{courierName},
+      #{courierIdcard},
+      #{courierPhone},
+      #{propCode},
+      #{propValue},
+      #{courierRegionCode},
+      #{idcardFilename},
+      #{frontimgUuid},
+      #{frontimgOsspath},
+      #{frontimgName},
+      #{backimgUuid},
+      #{backimgOsspath},
+      #{backimgName},
+      #{employeecardUuid},
+      #{employeecardOsspath},
+      #{employeecardName},
+      #{courierRegistIsagreement},
+      #{courierIsregist},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Long" >
+    DELETE
+    FROM
+      CLX_HELP_COURIERREGIST
+    WHERE
+      courier_regist_id = #{courierRegistId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxHelpCourierregist" >
+    UPDATE
+      CLX_HELP_COURIERREGIST
+    <set>
+      <if test="courierRegistId != null">
+        courier_regist_id = #{courierRegistId},
+      </if>
+      <if test="courierSerialcode != null">
+        courier_serialcode = #{courierSerialcode},
+      </if>
+      <if test="courierName != null">
+        courier_name = #{courierName},
+      </if>
+      <if test="courierIdcard != null">
+        courier_idcard = #{courierIdcard},
+      </if>
+      <if test="courierPhone != null">
+        courier_phone = #{courierPhone},
+      </if>
+      <if test="propCode != null">
+        prop_code = #{propCode},
+      </if>
+      <if test="propValue != null">
+        prop_value = #{propValue},
+      </if>
+      <if test="courierRegionCode != null">
+        courier_region_code = #{courierRegionCode},
+      </if>
+      <if test="idcardFilename != null">
+        idcard_filename = #{idcardFilename},
+      </if>
+      <if test="frontimgUuid != null">
+        frontimg_uuid = #{frontimgUuid},
+      </if>
+      <if test="frontimgOsspath != null">
+        frontimg_osspath = #{frontimgOsspath},
+      </if>
+      <if test="frontimgName != null">
+        frontimg_name = #{frontimgName},
+      </if>
+      <if test="backimgUuid != null">
+        backimg_uuid = #{backimgUuid},
+      </if>
+      <if test="backimgOsspath != null">
+        backimg_osspath = #{backimgOsspath},
+      </if>
+      <if test="backimgName != null">
+        backimg_name = #{backimgName},
+      </if>
+      <if test="employeecardUuid != null">
+        employeecard_uuid = #{employeecardUuid},
+      </if>
+      <if test="employeecardOsspath != null">
+        employeecard_osspath = #{employeecardOsspath},
+      </if>
+      <if test="employeecardName != null">
+        employeecard_name = #{employeecardName},
+      </if>
+      <if test="courierRegistIsagreement != null">
+        courier_regist_isagreement = #{courierRegistIsagreement},
+      </if>
+      <if test="courierIsregist != null">
+        courier_isregist = #{courierIsregist},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      courier_regist_id = #{courierRegistId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxHelpCourierregist" >
+    UPDATE
+      CLX_HELP_COURIERREGIST
+    SET
+      courier_regist_id = #{courierRegistId},
+      courier_serialcode = #{courierSerialcode},
+      courier_name = #{courierName},
+      courier_idcard = #{courierIdcard},
+      courier_phone = #{courierPhone},
+      prop_code = #{propCode},
+      prop_value = #{propValue},
+      courier_region_code = #{courierRegionCode},
+      idcard_filename = #{idcardFilename},
+      frontimg_uuid = #{frontimgUuid},
+      frontimg_osspath = #{frontimgOsspath},
+      frontimg_name = #{frontimgName},
+      backimg_uuid = #{backimgUuid},
+      backimg_osspath = #{backimgOsspath},
+      backimg_name = #{backimgName},
+      employeecard_uuid = #{employeecardUuid},
+      employeecard_osspath = #{employeecardOsspath},
+      employeecard_name = #{employeecardName},
+      courier_regist_isagreement = #{courierRegistIsagreement},
+      courier_isregist = #{courierIsregist},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      courier_regist_id = #{courierRegistId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Long" resultType="com.zebra.box.db.model.ClxHelpCourierregist" >
+    SELECT
+      courier_regist_id AS courierRegistId,
+      courier_serialcode AS courierSerialcode,
+      courier_name AS courierName,
+      courier_idcard AS courierIdcard,
+      courier_phone AS courierPhone,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      courier_region_code AS courierRegionCode,
+      idcard_filename AS idcardFilename,
+      frontimg_uuid AS frontimgUuid,
+      frontimg_osspath AS frontimgOsspath,
+      frontimg_name AS frontimgName,
+      backimg_uuid AS backimgUuid,
+      backimg_osspath AS backimgOsspath,
+      backimg_name AS backimgName,
+      employeecard_uuid AS employeecardUuid,
+      employeecard_osspath AS employeecardOsspath,
+      employeecard_name AS employeecardName,
+      courier_regist_isagreement AS courierRegistIsagreement,
+      courier_isregist AS courierIsregist,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_HELP_COURIERREGIST
+    WHERE
+      courier_regist_id = #{courierRegistId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxHelpCourierregist" resultType="com.zebra.box.db.model.ClxHelpCourierregist" >
+    SELECT
+      courier_regist_id AS courierRegistId,
+      courier_serialcode AS courierSerialcode,
+      courier_name AS courierName,
+      courier_idcard AS courierIdcard,
+      courier_phone AS courierPhone,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      courier_region_code AS courierRegionCode,
+      idcard_filename AS idcardFilename,
+      frontimg_uuid AS frontimgUuid,
+      frontimg_osspath AS frontimgOsspath,
+      frontimg_name AS frontimgName,
+      backimg_uuid AS backimgUuid,
+      backimg_osspath AS backimgOsspath,
+      backimg_name AS backimgName,
+      employeecard_uuid AS employeecardUuid,
+      employeecard_osspath AS employeecardOsspath,
+      employeecard_name AS employeecardName,
+      courier_regist_isagreement AS courierRegistIsagreement,
+      courier_isregist AS courierIsregist,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_HELP_COURIERREGIST
+    WHERE
+      1 = 1
+      <if test="courierRegistId != null">
+        AND courier_regist_id = #{courierRegistId}
+      </if>
+      <if test="courierSerialcode != null">
+        AND courier_serialcode = #{courierSerialcode}
+      </if>
+      <if test="courierName != null">
+        AND courier_name = #{courierName}
+      </if>
+      <if test="courierIdcard != null">
+        AND courier_idcard = #{courierIdcard}
+      </if>
+      <if test="courierPhone != null">
+        AND courier_phone = #{courierPhone}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="courierRegionCode != null">
+        AND courier_region_code = #{courierRegionCode}
+      </if>
+      <if test="idcardFilename != null">
+        AND idcard_filename = #{idcardFilename}
+      </if>
+      <if test="frontimgUuid != null">
+        AND frontimg_uuid = #{frontimgUuid}
+      </if>
+      <if test="frontimgOsspath != null">
+        AND frontimg_osspath = #{frontimgOsspath}
+      </if>
+      <if test="frontimgName != null">
+        AND frontimg_name = #{frontimgName}
+      </if>
+      <if test="backimgUuid != null">
+        AND backimg_uuid = #{backimgUuid}
+      </if>
+      <if test="backimgOsspath != null">
+        AND backimg_osspath = #{backimgOsspath}
+      </if>
+      <if test="backimgName != null">
+        AND backimg_name = #{backimgName}
+      </if>
+      <if test="employeecardUuid != null">
+        AND employeecard_uuid = #{employeecardUuid}
+      </if>
+      <if test="employeecardOsspath != null">
+        AND employeecard_osspath = #{employeecardOsspath}
+      </if>
+      <if test="employeecardName != null">
+        AND employeecard_name = #{employeecardName}
+      </if>
+      <if test="courierRegistIsagreement != null">
+        AND courier_regist_isagreement = #{courierRegistIsagreement}
+      </if>
+      <if test="courierIsregist != null">
+        AND courier_isregist = #{courierIsregist}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxHelpCourierregist" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_HELP_COURIERREGIST
+    WHERE
+      1 = 1
+      <if test="courierRegistId != null">
+        AND courier_regist_id = #{courierRegistId}
+      </if>
+      <if test="courierSerialcode != null">
+        AND courier_serialcode = #{courierSerialcode}
+      </if>
+      <if test="courierName != null">
+        AND courier_name = #{courierName}
+      </if>
+      <if test="courierIdcard != null">
+        AND courier_idcard = #{courierIdcard}
+      </if>
+      <if test="courierPhone != null">
+        AND courier_phone = #{courierPhone}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="courierRegionCode != null">
+        AND courier_region_code = #{courierRegionCode}
+      </if>
+      <if test="idcardFilename != null">
+        AND idcard_filename = #{idcardFilename}
+      </if>
+      <if test="frontimgUuid != null">
+        AND frontimg_uuid = #{frontimgUuid}
+      </if>
+      <if test="frontimgOsspath != null">
+        AND frontimg_osspath = #{frontimgOsspath}
+      </if>
+      <if test="frontimgName != null">
+        AND frontimg_name = #{frontimgName}
+      </if>
+      <if test="backimgUuid != null">
+        AND backimg_uuid = #{backimgUuid}
+      </if>
+      <if test="backimgOsspath != null">
+        AND backimg_osspath = #{backimgOsspath}
+      </if>
+      <if test="backimgName != null">
+        AND backimg_name = #{backimgName}
+      </if>
+      <if test="employeecardUuid != null">
+        AND employeecard_uuid = #{employeecardUuid}
+      </if>
+      <if test="employeecardOsspath != null">
+        AND employeecard_osspath = #{employeecardOsspath}
+      </if>
+      <if test="employeecardName != null">
+        AND employeecard_name = #{employeecardName}
+      </if>
+      <if test="courierRegistIsagreement != null">
+        AND courier_regist_isagreement = #{courierRegistIsagreement}
+      </if>
+      <if test="courierIsregist != null">
+        AND courier_isregist = #{courierIsregist}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

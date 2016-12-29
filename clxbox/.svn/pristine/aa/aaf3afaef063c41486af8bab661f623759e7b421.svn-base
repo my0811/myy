@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxCommonBqImgdbLogMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxCommonBqImgdbLog" useGeneratedKeys="true" keyProperty="bqImgdbId" >
+    INSERT INTO
+      CLX_COMMON_BQ_IMGDB_LOG
+    (
+      bq_imgdb_uuid,
+      bq_imgdb_address,
+      bq_imgdb_name,
+      bq_imgdb_ossfilename,
+      bq_imgdb_filetype,
+      bq_imgdb_usedlock,
+      log_operation_status,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{bqImgdbUuid},
+      #{bqImgdbAddress},
+      #{bqImgdbName},
+      #{bqImgdbOssfilename},
+      #{bqImgdbFiletype},
+      #{bqImgdbUsedlock},
+      #{logOperationStatus},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_COMMON_BQ_IMGDB_LOG
+    WHERE
+      bq_imgdb_id = #{bqImgdbId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCommonBqImgdbLog" >
+    UPDATE
+      CLX_COMMON_BQ_IMGDB_LOG
+    <set>
+      <if test="bqImgdbId != null">
+        bq_imgdb_id = #{bqImgdbId},
+      </if>
+      <if test="bqImgdbUuid != null">
+        bq_imgdb_uuid = #{bqImgdbUuid},
+      </if>
+      <if test="bqImgdbAddress != null">
+        bq_imgdb_address = #{bqImgdbAddress},
+      </if>
+      <if test="bqImgdbName != null">
+        bq_imgdb_name = #{bqImgdbName},
+      </if>
+      <if test="bqImgdbOssfilename != null">
+        bq_imgdb_ossfilename = #{bqImgdbOssfilename},
+      </if>
+      <if test="bqImgdbFiletype != null">
+        bq_imgdb_filetype = #{bqImgdbFiletype},
+      </if>
+      <if test="bqImgdbUsedlock != null">
+        bq_imgdb_usedlock = #{bqImgdbUsedlock},
+      </if>
+      <if test="logOperationStatus != null">
+        log_operation_status = #{logOperationStatus},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      bq_imgdb_id = #{bqImgdbId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCommonBqImgdbLog" >
+    UPDATE
+      CLX_COMMON_BQ_IMGDB_LOG
+    SET
+      bq_imgdb_id = #{bqImgdbId},
+      bq_imgdb_uuid = #{bqImgdbUuid},
+      bq_imgdb_address = #{bqImgdbAddress},
+      bq_imgdb_name = #{bqImgdbName},
+      bq_imgdb_ossfilename = #{bqImgdbOssfilename},
+      bq_imgdb_filetype = #{bqImgdbFiletype},
+      bq_imgdb_usedlock = #{bqImgdbUsedlock},
+      log_operation_status = #{logOperationStatus},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      bq_imgdb_id = #{bqImgdbId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxCommonBqImgdbLog" >
+    SELECT
+      bq_imgdb_id AS bqImgdbId,
+      bq_imgdb_uuid AS bqImgdbUuid,
+      bq_imgdb_address AS bqImgdbAddress,
+      bq_imgdb_name AS bqImgdbName,
+      bq_imgdb_ossfilename AS bqImgdbOssfilename,
+      bq_imgdb_filetype AS bqImgdbFiletype,
+      bq_imgdb_usedlock AS bqImgdbUsedlock,
+      log_operation_status AS logOperationStatus,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COMMON_BQ_IMGDB_LOG
+    WHERE
+      bq_imgdb_id = #{bqImgdbId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxCommonBqImgdbLog" resultType="com.zebra.box.db.model.ClxCommonBqImgdbLog" >
+    SELECT
+      bq_imgdb_id AS bqImgdbId,
+      bq_imgdb_uuid AS bqImgdbUuid,
+      bq_imgdb_address AS bqImgdbAddress,
+      bq_imgdb_name AS bqImgdbName,
+      bq_imgdb_ossfilename AS bqImgdbOssfilename,
+      bq_imgdb_filetype AS bqImgdbFiletype,
+      bq_imgdb_usedlock AS bqImgdbUsedlock,
+      log_operation_status AS logOperationStatus,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COMMON_BQ_IMGDB_LOG
+    WHERE
+      1 = 1
+      <if test="bqImgdbId != null">
+        AND bq_imgdb_id = #{bqImgdbId}
+      </if>
+      <if test="bqImgdbUuid != null">
+        AND bq_imgdb_uuid = #{bqImgdbUuid}
+      </if>
+      <if test="bqImgdbAddress != null">
+        AND bq_imgdb_address = #{bqImgdbAddress}
+      </if>
+      <if test="bqImgdbName != null">
+        AND bq_imgdb_name = #{bqImgdbName}
+      </if>
+      <if test="bqImgdbOssfilename != null">
+        AND bq_imgdb_ossfilename = #{bqImgdbOssfilename}
+      </if>
+      <if test="bqImgdbFiletype != null">
+        AND bq_imgdb_filetype = #{bqImgdbFiletype}
+      </if>
+      <if test="bqImgdbUsedlock != null">
+        AND bq_imgdb_usedlock = #{bqImgdbUsedlock}
+      </if>
+      <if test="logOperationStatus != null">
+        AND log_operation_status = #{logOperationStatus}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxCommonBqImgdbLog" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_COMMON_BQ_IMGDB_LOG
+    WHERE
+      1 = 1
+      <if test="bqImgdbId != null">
+        AND bq_imgdb_id = #{bqImgdbId}
+      </if>
+      <if test="bqImgdbUuid != null">
+        AND bq_imgdb_uuid = #{bqImgdbUuid}
+      </if>
+      <if test="bqImgdbAddress != null">
+        AND bq_imgdb_address = #{bqImgdbAddress}
+      </if>
+      <if test="bqImgdbName != null">
+        AND bq_imgdb_name = #{bqImgdbName}
+      </if>
+      <if test="bqImgdbOssfilename != null">
+        AND bq_imgdb_ossfilename = #{bqImgdbOssfilename}
+      </if>
+      <if test="bqImgdbFiletype != null">
+        AND bq_imgdb_filetype = #{bqImgdbFiletype}
+      </if>
+      <if test="bqImgdbUsedlock != null">
+        AND bq_imgdb_usedlock = #{bqImgdbUsedlock}
+      </if>
+      <if test="logOperationStatus != null">
+        AND log_operation_status = #{logOperationStatus}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

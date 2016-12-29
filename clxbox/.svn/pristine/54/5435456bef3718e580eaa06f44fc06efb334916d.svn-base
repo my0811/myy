@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .clx-common-form > ul > li {
+            display: block;
+            margin-bottom: 27px;
+        }
+
+        .clx-common-form > ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .clx-warnning-msg {
+            text-align: right;
+            color: red;
+            font-size: 14px;
+            font-family: '微软雅黑';
+        }
+
+        input {
+            width: 100%;
+            vertical-align: middle;
+            margin: 0;
+            padding: 0;
+        }
+
+        input, input[type="text"], input[type="password"] {
+            color: #121a25;
+            border: 1px solid #d6d6d6;
+            height: 32px;
+            line-height: 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .clx-common-form > ul > li input,
+        .clx-common-form > ul > li input[type="text"],
+        .clx-common-form > ul > li input[type="password"] {
+            margin-top: 10px;
+        }
+
+        input:focus,
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            color: #121a25;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            box-shadow: 2px 2px 5px #d6d6d6;
+            outline-style: inherit;
+            outline-color: #43af94;
+            border: 1px solid #43af94;
+            background: white;
+        }
+
+        .clx-common-form > ul > li > .input-check-part > input[type="radio"] {
+            margin: auto 10px auto 0;
+            width: 12px;
+            height: 12px;
+            vertical-align: middle;
+        }
+
+        .clx-common-form > ul > li > .input-check-part > label {
+            vertical-align: middle;
+        }
+
+        .clx-common-form > ul > li > .input-check-part > input[type="checkbox"] {
+            margin: auto 10px auto 0;
+            vertical-align: middle;
+            width: 12px;
+            height: 12px;
+        }
+
+        .clx-fr {
+            float: right;
+        }
+        a{text-decoration:none;}
+        .btn_addPic{
+            display: inline-block;
+            position: relative;
+            height: 39px;
+            overflow: hidden;
+            padding: 0 30px;
+            border: 1px solid #EBEBEB;
+            background: none repeat scroll 0 0 #F3F3F3;
+            color: #999999;
+            font: 14px/39px 'MicroSoft Yahei','Simhei';
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .filePrew {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 140px;
+            height: 39px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity:0);
+        }
+        input[type="file"]{
+            ime-mode: disabled;
+        }
+        .text-common-group{
+            width: 100%;
+            clear: both;
+        }
+        .text-common-group>input,
+        .text-common-group>div{
+            float: left;
+        }
+        .text-common-group>span{
+            display: block;
+        }
+        .text-common-group>input{
+            margin-top: 15px;
+        }
+        .text-common-group>div{
+            width: 16px;
+            line-height: 32px;
+            height: 32px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 1000px;margin: auto">
+    <form action="" class="clx-common-form" autocomplete="off">
+        <ul>
+            <li>
+                <label for="username">用户名</label><span class="clx-warnning-msg clx-fr">(此处不得为空,请重新填写)</span>
+                <input name="username" id="username" type="text"/>
+            </li>
+            <li>
+                <span><label for="password">密码</label>
+                <span class="clx-warnning-msg clx-fr">(此处不得为空请重新填写)</span>
+                    </span>
+                <input name="password" id="password" type="password"/>
+            </li>
+            <li>
+            <span class="input-check-part">
+                <input id="check-1" name="xx" type="radio"/><label for="check-1">猫</label>
+            </span>
+            <span class="input-check-part">
+                <input id="check-1" name="xx" type="radio" checked/><label for="check-1">狗</label>
+            </span>
+            <span class="input-check-part">
+                <input id="check-1" name="xx" type="radio"/><label for="check-1">兔子</label>
+            </span>
+            </li>
+            <li>
+            <span class="input-check-part">
+                <input id="checkbox-1" name="xx1" type="checkbox"/><label for="checkbox-1">电影</label>
+            </span>
+            <span class="input-check-part">
+                <input id="checkbox-2" name="xx2" type="checkbox"/><label for="checkbox-2">电视剧</label>
+            </span>
+            <span class="input-check-part">
+                <input id="checkbox-3" name="xx3" type="checkbox"/><label for="checkbox-3">娱乐节目</label>
+            </span>
+            </li>
+
+            <li>
+                <input type="file" style="ime-mode: disabled;"/>
+                <a href="javascript:;" class="btn_addPic">
+                    <span>上传图片</span>
+                    <input value="上传图片" type="file" tabindex="3" readonly="readonly" title="支持jpg、jpeg、gif、png格式，文件小于5M" size="3" name="pic" class="filePrew">
+                </a>
+            </li>
+    </form>
+</div>
+<div class="text-common-group">
+    <span>电话输入框</span>
+    <input type="text" style="width: 140px;"/><div>--</div>
+    <input type="text" style="width: 200px;"/><div>--</div>
+    <input type="text" style="width: 300px;"/>
+</div>
+<div class="text-common-group">
+    <span>电话输入框</span>
+    <input type="text" style="width: 140px;"/><div>--</div>
+    <input type="text" style="width: 200px;"/><div>--</div>
+    <input type="text" style="width: 300px;"/>
+</div>
+<div class="text-co`mmon-group" style="position: relative">
+    <span >
+        <span>电话输入框</span>
+        <span class="msg" style="position:absolute;right: ">(请勿1111)</span>
+        <span class="error-msg"></span>
+    </span>
+    <input type="text" style="width: 140px;"/><div>--</div>
+    <input type="text" style="width: 200px;"/><div>--</div>
+    <input type="text" style="width: 300px;"/>
+</div>
+</body>
+</html>

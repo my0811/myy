@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxJoinusRecruitmentmsgMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxJoinusRecruitmentmsg" useGeneratedKeys="true" keyProperty="recruitmentmsgId" >
+    INSERT INTO
+      CLX_JOINUS_RECRUITMENTMSG
+    (
+      recruitmentmsg_text,
+      recruitment_code,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{recruitmentmsgText},
+      #{recruitmentCode},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_JOINUS_RECRUITMENTMSG
+    WHERE
+      recruitmentmsg_id = #{recruitmentmsgId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxJoinusRecruitmentmsg" >
+    UPDATE
+      CLX_JOINUS_RECRUITMENTMSG
+    <set>
+      <if test="recruitmentmsgId != null">
+        recruitmentmsg_id = #{recruitmentmsgId},
+      </if>
+      <if test="recruitmentmsgText != null">
+        recruitmentmsg_text = #{recruitmentmsgText},
+      </if>
+      <if test="recruitmentCode != null">
+        recruitment_code = #{recruitmentCode},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      recruitmentmsg_id = #{recruitmentmsgId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxJoinusRecruitmentmsg" >
+    UPDATE
+      CLX_JOINUS_RECRUITMENTMSG
+    SET
+      recruitmentmsg_id = #{recruitmentmsgId},
+      recruitmentmsg_text = #{recruitmentmsgText},
+      recruitment_code = #{recruitmentCode},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      recruitmentmsg_id = #{recruitmentmsgId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxJoinusRecruitmentmsg" >
+    SELECT
+      recruitmentmsg_id AS recruitmentmsgId,
+      recruitmentmsg_text AS recruitmentmsgText,
+      recruitment_code AS recruitmentCode,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_JOINUS_RECRUITMENTMSG
+    WHERE
+      recruitmentmsg_id = #{recruitmentmsgId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxJoinusRecruitmentmsg" resultType="com.zebra.box.db.model.ClxJoinusRecruitmentmsg" >
+    SELECT
+      recruitmentmsg_id AS recruitmentmsgId,
+      recruitmentmsg_text AS recruitmentmsgText,
+      recruitment_code AS recruitmentCode,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_JOINUS_RECRUITMENTMSG
+    WHERE
+      1 = 1
+      <if test="recruitmentmsgId != null">
+        AND recruitmentmsg_id = #{recruitmentmsgId}
+      </if>
+      <if test="recruitmentmsgText != null">
+        AND recruitmentmsg_text = #{recruitmentmsgText}
+      </if>
+      <if test="recruitmentCode != null">
+        AND recruitment_code = #{recruitmentCode}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxJoinusRecruitmentmsg" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_JOINUS_RECRUITMENTMSG
+    WHERE
+      1 = 1
+      <if test="recruitmentmsgId != null">
+        AND recruitmentmsg_id = #{recruitmentmsgId}
+      </if>
+      <if test="recruitmentmsgText != null">
+        AND recruitmentmsg_text = #{recruitmentmsgText}
+      </if>
+      <if test="recruitmentCode != null">
+        AND recruitment_code = #{recruitmentCode}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

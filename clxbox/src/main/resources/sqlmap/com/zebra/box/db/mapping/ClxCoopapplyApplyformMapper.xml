@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxCoopapplyApplyformMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxCoopapplyApplyform" useGeneratedKeys="true" keyProperty="applyformId" >
+    INSERT INTO
+      CLX_COOPAPPLY_APPLYFORM
+    (
+      prop_code,
+      prop_value,
+      applyer_otheridentity,
+      applyer_addrcode,
+      applyer_detailaddr,
+      apply_reson,
+      regional_manager,
+      regional_managertel,
+      applyer_name,
+      applyer_tel,
+      applyer_mail,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag
+    ) VALUES (
+      #{propCode},
+      #{propValue},
+      #{applyerOtheridentity},
+      #{applyerAddrcode},
+      #{applyerDetailaddr},
+      #{applyReson},
+      #{regionalManager},
+      #{regionalManagertel},
+      #{applyerName},
+      #{applyerTel},
+      #{applyerMail},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_COOPAPPLY_APPLYFORM
+    WHERE
+      applyform_id = #{applyformId}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCoopapplyApplyform" >
+    UPDATE
+      CLX_COOPAPPLY_APPLYFORM
+    <set>
+      <if test="applyformId != null">
+        applyform_id = #{applyformId},
+      </if>
+      <if test="propCode != null">
+        prop_code = #{propCode},
+      </if>
+      <if test="propValue != null">
+        prop_value = #{propValue},
+      </if>
+      <if test="applyerOtheridentity != null">
+        applyer_otheridentity = #{applyerOtheridentity},
+      </if>
+      <if test="applyerAddrcode != null">
+        applyer_addrcode = #{applyerAddrcode},
+      </if>
+      <if test="applyerDetailaddr != null">
+        applyer_detailaddr = #{applyerDetailaddr},
+      </if>
+      <if test="applyReson != null">
+        apply_reson = #{applyReson},
+      </if>
+      <if test="regionalManager != null">
+        regional_manager = #{regionalManager},
+      </if>
+      <if test="regionalManagertel != null">
+        regional_managertel = #{regionalManagertel},
+      </if>
+      <if test="applyerName != null">
+        applyer_name = #{applyerName},
+      </if>
+      <if test="applyerTel != null">
+        applyer_tel = #{applyerTel},
+      </if>
+      <if test="applyerMail != null">
+        applyer_mail = #{applyerMail},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+    </set>
+    WHERE
+      applyform_id = #{applyformId}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCoopapplyApplyform" >
+    UPDATE
+      CLX_COOPAPPLY_APPLYFORM
+    SET
+      applyform_id = #{applyformId},
+      prop_code = #{propCode},
+      prop_value = #{propValue},
+      applyer_otheridentity = #{applyerOtheridentity},
+      applyer_addrcode = #{applyerAddrcode},
+      applyer_detailaddr = #{applyerDetailaddr},
+      apply_reson = #{applyReson},
+      regional_manager = #{regionalManager},
+      regional_managertel = #{regionalManagertel},
+      applyer_name = #{applyerName},
+      applyer_tel = #{applyerTel},
+      applyer_mail = #{applyerMail},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag}
+    WHERE
+      applyform_id = #{applyformId}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxCoopapplyApplyform" >
+    SELECT
+      applyform_id AS applyformId,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      applyer_otheridentity AS applyerOtheridentity,
+      applyer_addrcode AS applyerAddrcode,
+      applyer_detailaddr AS applyerDetailaddr,
+      apply_reson AS applyReson,
+      regional_manager AS regionalManager,
+      regional_managertel AS regionalManagertel,
+      applyer_name AS applyerName,
+      applyer_tel AS applyerTel,
+      applyer_mail AS applyerMail,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COOPAPPLY_APPLYFORM
+    WHERE
+      applyform_id = #{applyformId}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxCoopapplyApplyform" resultType="com.zebra.box.db.model.ClxCoopapplyApplyform" >
+    SELECT
+      applyform_id AS applyformId,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      applyer_otheridentity AS applyerOtheridentity,
+      applyer_addrcode AS applyerAddrcode,
+      applyer_detailaddr AS applyerDetailaddr,
+      apply_reson AS applyReson,
+      regional_manager AS regionalManager,
+      regional_managertel AS regionalManagertel,
+      applyer_name AS applyerName,
+      applyer_tel AS applyerTel,
+      applyer_mail AS applyerMail,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag
+    FROM
+      CLX_COOPAPPLY_APPLYFORM
+    WHERE
+      1 = 1
+      <if test="applyformId != null">
+        AND applyform_id = #{applyformId}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="applyerOtheridentity != null">
+        AND applyer_otheridentity = #{applyerOtheridentity}
+      </if>
+      <if test="applyerAddrcode != null">
+        AND applyer_addrcode = #{applyerAddrcode}
+      </if>
+      <if test="applyerDetailaddr != null">
+        AND applyer_detailaddr = #{applyerDetailaddr}
+      </if>
+      <if test="applyReson != null">
+        AND apply_reson = #{applyReson}
+      </if>
+      <if test="regionalManager != null">
+        AND regional_manager = #{regionalManager}
+      </if>
+      <if test="regionalManagertel != null">
+        AND regional_managertel = #{regionalManagertel}
+      </if>
+      <if test="applyerName != null">
+        AND applyer_name = #{applyerName}
+      </if>
+      <if test="applyerTel != null">
+        AND applyer_tel = #{applyerTel}
+      </if>
+      <if test="applyerMail != null">
+        AND applyer_mail = #{applyerMail}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxCoopapplyApplyform" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_COOPAPPLY_APPLYFORM
+    WHERE
+      1 = 1
+      <if test="applyformId != null">
+        AND applyform_id = #{applyformId}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="applyerOtheridentity != null">
+        AND applyer_otheridentity = #{applyerOtheridentity}
+      </if>
+      <if test="applyerAddrcode != null">
+        AND applyer_addrcode = #{applyerAddrcode}
+      </if>
+      <if test="applyerDetailaddr != null">
+        AND applyer_detailaddr = #{applyerDetailaddr}
+      </if>
+      <if test="applyReson != null">
+        AND apply_reson = #{applyReson}
+      </if>
+      <if test="regionalManager != null">
+        AND regional_manager = #{regionalManager}
+      </if>
+      <if test="regionalManagertel != null">
+        AND regional_managertel = #{regionalManagertel}
+      </if>
+      <if test="applyerName != null">
+        AND applyer_name = #{applyerName}
+      </if>
+      <if test="applyerTel != null">
+        AND applyer_tel = #{applyerTel}
+      </if>
+      <if test="applyerMail != null">
+        AND applyer_mail = #{applyerMail}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+  </select>
+</mapper>

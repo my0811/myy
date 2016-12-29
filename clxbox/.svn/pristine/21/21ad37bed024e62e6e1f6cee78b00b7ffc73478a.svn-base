@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:c="http://www.springframework.org/schema/c" xmlns:cache="http://www.springframework.org/schema/cache" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee" xmlns:lang="http://www.springframework.org/schema/lang"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd  
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  
+http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd  
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd  
+http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd  
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd  
+http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd  
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd  
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 数据源 -->
+    <!-- 206数据源 -->
+    <bean id="mySqlDataSource206" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" parent="abstractDataSource">
+        <property name="url" value="${mysql.jdbc.206.url}" />
+        <property name="username" value="${mysql.jdbc.206.username}" />
+        <property name="password" value="${mysql.jdbc.206.password}" />
+    </bean>
+    <!-- 本地数据源 -->
+    <bean id="mySqlDataSourceLocal" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" parent="abstractDataSource">
+        <property name="url" value="${mysql.jdbc.local.url}" />
+        <property name="username" value="${mysql.jdbc.local.username}" />
+        <property name="password" value="${mysql.jdbc.local.password}" />
+    </bean>
+    <!-- 多数据源集合工厂 -->
+    <bean id="multipleDataSource" class="com.zebra.framework.datasource.MultipleDataSource">
+        <!-- 默认数据源，不建议加默认，为了安全，找不到数据源程序应该停止 -->
+        <!--<property name="defaultTargetDataSource" ref="mySqlDataSourceLocal"/> -->
+        <property name="targetDataSources">
+            <!-- 注意在此处要引入上面所声明的数据源 -->
+            <map>
+                <entry key="mySqlDataSource206" value-ref="mySqlDataSource206" />
+                <entry key="mySqlDataSourceLocal" value-ref="mySqlDataSourceLocal" />
+            </map>
+        </property>
+    </bean>
+</beans>

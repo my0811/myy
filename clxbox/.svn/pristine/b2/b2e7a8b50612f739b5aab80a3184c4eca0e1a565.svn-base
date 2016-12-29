@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:lang="http://www.springframework.org/schema/lang" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd  
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  
+http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd  
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd  
+http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd  
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd  
+http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd  
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd  
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- 数据源 -->
+	<bean id="abstractDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${mysql.jdbc.driver}" />
+		<property name="maxIdle" value="${dbcp2.maxIdle}" />
+		<property name="minIdle" value="${dbcp2.minIdle}" />
+		<property name="initialSize" value="${dbcp2.initialSize}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${dbcp2.timeBetweenEvictionRunsMillis}" />
+		<property name="poolPreparedStatements" value="${dbcp2.poolPreparedStatements}" />
+		<property name="maxOpenPreparedStatements" value="${dbcp2.maxOpenPreparedStatements}" />
+		<property name="removeAbandonedTimeout" value="${dbcp2.removeAbandonedTimeout}" />
+		<!-- 申请连接时执行validationQuery检测连接是否有效，配置为true会降低性能 -->
+		<property name="testOnBorrow" value="${dbcp2.testOnBorrow}" />
+		<!-- 归还连接时执行validationQuery检测连接是否有效，配置为true会降低性能 -->
+		<property name="testOnReturn" value="${dbcp2.testOnReturn}" />
+		<!-- 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。 -->
+		<property name="testWhileIdle" value="${dbcp2.testWhileIdle}" />
+		<!-- 用来检测连接是否有效的sql，要求是一个查询语句,如果validationQuery为 null，testOnBorrow、testOnReturn、testWhileIdle都不起其作用。 -->
+		<property name="validationQuery" value="${dbcp2.validationQuery}" />
+	</bean>
+</beans>

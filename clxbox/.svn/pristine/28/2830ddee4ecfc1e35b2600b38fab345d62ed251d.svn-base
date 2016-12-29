@@ -1,0 +1,47 @@
+package com.zebra.box.db.model.demo;
+
+public class User {
+	// 姓名
+	private String name;
+	// 账号
+	private String acccount;
+	// 密码
+	private String passWord;
+	// 手机
+	private String mobile;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAcccount() {
+		return acccount;
+	}
+
+	public void setAcccount(String acccount) {
+		this.acccount = acccount;
+	}
+
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+
+
+}

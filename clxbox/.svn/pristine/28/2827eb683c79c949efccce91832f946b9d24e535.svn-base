@@ -1,0 +1,22 @@
+$(function() {
+    $('#skipForm a').each(function() {
+        $(this).click(function() {
+            if ($(this).attr('class') != 'logo') {
+                var url = getUrl($(this));
+                skipForm(url);
+                $(this).closest('li').addClass('clx-active').siblings().removeClass('clx-active');
+            } else {
+                $(this).closest('li').removeClass('clx-active').siblings().removeClass('clx-active');
+            }
+        });
+    });
+});
+
+function getUrl(obj) {
+    var url = obj.attr('page-url');
+    return url;
+}
+
+function skipForm(url) {
+    $('#skipForm').attr('action', url).submit();
+}

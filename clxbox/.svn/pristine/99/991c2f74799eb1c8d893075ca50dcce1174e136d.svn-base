@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zebra.box.db.mapper.ClxCommonBqGroupMapper">
+  <!-- 插入 -->
+  <insert id="insert" parameterType="ClxCommonBqGroup" useGeneratedKeys="true" keyProperty="bqGroupid" >
+    INSERT INTO
+      CLX_COMMON_BQ_GROUP
+    (
+      bq_groupcode,
+      bq_groupname,
+      bq_imgdb_id,
+      prop_code,
+      prop_value,
+      create_time,
+      create_user,
+      update_time,
+      update_user,
+      delete_flag,
+      group_usedlock,
+      group_enabled
+    ) VALUES (
+      #{bqGroupcode},
+      #{bqGroupname},
+      #{bqImgdbId},
+      #{propCode},
+      #{propValue},
+      #{createTime},
+      #{createUser},
+      #{updateTime},
+      #{updateUser},
+      #{deleteFlag},
+      #{groupUsedlock},
+      #{groupEnabled}
+    )
+  </insert>
+  <!-- 删除通过主键 -->
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    DELETE
+    FROM
+      CLX_COMMON_BQ_GROUP
+    WHERE
+      bq_groupid = #{bqGroupid}
+  </delete>
+  <!-- 单件更新通过主键(部分更新) -->
+  <update id="updateByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCommonBqGroup" >
+    UPDATE
+      CLX_COMMON_BQ_GROUP
+    <set>
+      <if test="bqGroupid != null">
+        bq_groupid = #{bqGroupid},
+      </if>
+      <if test="bqGroupcode != null">
+        bq_groupcode = #{bqGroupcode},
+      </if>
+      <if test="bqGroupname != null">
+        bq_groupname = #{bqGroupname},
+      </if>
+      <if test="bqImgdbId != null">
+        bq_imgdb_id = #{bqImgdbId},
+      </if>
+      <if test="propCode != null">
+        prop_code = #{propCode},
+      </if>
+      <if test="propValue != null">
+        prop_value = #{propValue},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag},
+      </if>
+      <if test="groupUsedlock != null">
+        group_usedlock = #{groupUsedlock},
+      </if>
+      <if test="groupEnabled != null">
+        group_enabled = #{groupEnabled},
+      </if>
+    </set>
+    WHERE
+      bq_groupid = #{bqGroupid}
+  </update>
+  <!-- 单件更新通过主键(全更新) -->
+  <update id="updateAllByPrimaryKey" parameterType="com.zebra.box.db.model.ClxCommonBqGroup" >
+    UPDATE
+      CLX_COMMON_BQ_GROUP
+    SET
+      bq_groupid = #{bqGroupid},
+      bq_groupcode = #{bqGroupcode},
+      bq_groupname = #{bqGroupname},
+      bq_imgdb_id = #{bqImgdbId},
+      prop_code = #{propCode},
+      prop_value = #{propValue},
+      create_time = #{createTime},
+      create_user = #{createUser},
+      update_time = #{updateTime},
+      update_user = #{updateUser},
+      delete_flag = #{deleteFlag},
+      group_usedlock = #{groupUsedlock},
+      group_enabled = #{groupEnabled}
+    WHERE
+      bq_groupid = #{bqGroupid}
+  </update>
+  <!-- 单件检索通过主键 -->
+  <select id="selectOneByPrimaryKey" parameterType="Integer" resultType="com.zebra.box.db.model.ClxCommonBqGroup" >
+    SELECT
+      bq_groupid AS bqGroupid,
+      bq_groupcode AS bqGroupcode,
+      bq_groupname AS bqGroupname,
+      bq_imgdb_id AS bqImgdbId,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag,
+      group_usedlock AS groupUsedlock,
+      group_enabled AS groupEnabled
+    FROM
+      CLX_COMMON_BQ_GROUP
+    WHERE
+      bq_groupid = #{bqGroupid}
+  </select>
+  <!-- 检索列表 -->
+  <select id="selectList" parameterType="com.zebra.box.db.model.ClxCommonBqGroup" resultType="com.zebra.box.db.model.ClxCommonBqGroup" >
+    SELECT
+      bq_groupid AS bqGroupid,
+      bq_groupcode AS bqGroupcode,
+      bq_groupname AS bqGroupname,
+      bq_imgdb_id AS bqImgdbId,
+      prop_code AS propCode,
+      prop_value AS propValue,
+      create_time AS createTime,
+      create_user AS createUser,
+      update_time AS updateTime,
+      update_user AS updateUser,
+      delete_flag AS deleteFlag,
+      group_usedlock AS groupUsedlock,
+      group_enabled AS groupEnabled
+    FROM
+      CLX_COMMON_BQ_GROUP
+    WHERE
+      1 = 1
+      <if test="bqGroupid != null">
+        AND bq_groupid = #{bqGroupid}
+      </if>
+      <if test="bqGroupcode != null">
+        AND bq_groupcode = #{bqGroupcode}
+      </if>
+      <if test="bqGroupname != null">
+        AND bq_groupname = #{bqGroupname}
+      </if>
+      <if test="bqImgdbId != null">
+        AND bq_imgdb_id = #{bqImgdbId}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+      <if test="groupUsedlock != null">
+        AND group_usedlock = #{groupUsedlock}
+      </if>
+      <if test="groupEnabled != null">
+        AND group_enabled = #{groupEnabled}
+      </if>
+  </select>
+  <!-- 检索件数 -->
+  <select id="selectCount" parameterType="com.zebra.box.db.model.ClxCommonBqGroup" resultType="int" >
+    SELECT
+      COUNT(0)
+    FROM
+      CLX_COMMON_BQ_GROUP
+    WHERE
+      1 = 1
+      <if test="bqGroupid != null">
+        AND bq_groupid = #{bqGroupid}
+      </if>
+      <if test="bqGroupcode != null">
+        AND bq_groupcode = #{bqGroupcode}
+      </if>
+      <if test="bqGroupname != null">
+        AND bq_groupname = #{bqGroupname}
+      </if>
+      <if test="bqImgdbId != null">
+        AND bq_imgdb_id = #{bqImgdbId}
+      </if>
+      <if test="propCode != null">
+        AND prop_code = #{propCode}
+      </if>
+      <if test="propValue != null">
+        AND prop_value = #{propValue}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime}
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime}
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser}
+      </if>
+      <if test="deleteFlag != null">
+        AND delete_flag = #{deleteFlag}
+      </if>
+      <if test="groupUsedlock != null">
+        AND group_usedlock = #{groupUsedlock}
+      </if>
+      <if test="groupEnabled != null">
+        AND group_enabled = #{groupEnabled}
+      </if>
+  </select>
+</mapper>

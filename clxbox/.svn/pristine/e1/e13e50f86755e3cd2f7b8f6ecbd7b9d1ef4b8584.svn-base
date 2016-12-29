@@ -1,0 +1,29 @@
+package com.zebra.box.db.model.demo;
+
+public class UserDetail {
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	//公司
+	private String company;
+	//年龄
+	private int age;
+	//住址
+	private String address;
+
+}

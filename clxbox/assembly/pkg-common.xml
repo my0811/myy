@@ -1,0 +1,47 @@
+<component>
+	<fileSets>
+		<!-- 将 target/classes 下的文件输出到 WEB-INF/classes, 同时排除 target/classes/conf/*.properties -->
+		<fileSet>
+			<!-- target/classes -->
+			<directory>${project.build.outputDirectory}</directory>
+			<outputDirectory>${package.war.class.buildPath}</outputDirectory>
+			<!-- 排除依赖环境配置文件 -->
+			<excludes>
+				<exclude>**/${env.db.path}/*.properties</exclude>
+				<exclude>**/${env.prop.path}/**/*.properties</exclude>
+			</excludes>
+		</fileSet>
+		<!-- db 配置文件 -->
+		<fileSet>
+			<directory>${env.db}</directory>
+			<excludes>
+				<exclude>**/*.xml</exclude>
+			</excludes>
+			<outputDirectory>${env.db.target}</outputDirectory>
+		</fileSet>
+		<!-- properties 配置文件 -->
+		<fileSet>
+			<directory>${env.prop}</directory>
+			<outputDirectory>${env.prop.target}</outputDirectory>
+		</fileSet>
+		<!-- 将 webapp 下的文件输出到 WAR 包 -->
+		<fileSet>
+			<directory>${project.basedir}/${web.root}</directory>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<!-- jar 包依赖copy到lib下 -->
+		<dependencySet>
+			<useProjectArtifact>false</useProjectArtifact>
+			<!-- 将scope为runtime的依赖包打包到lib目录下。只会拷贝到当前目录下的lib下 -->
+			<outputDirectory>WEB-INF/lib</outputDirectory>
+			<scope>runtime</scope>
+			<!-- 排除制定的jar -->
+			<excludes>
+				<!--排除junit 测试jar  -->
+				<exclude>junit:junit</exclude>
+			</excludes>
+		</dependencySet>
+	</dependencySets>
+</component>

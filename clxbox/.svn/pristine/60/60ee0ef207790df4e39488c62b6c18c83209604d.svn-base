@@ -1,0 +1,32 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<script src="js/clx/clx-navigate.js"></script>
+<form id="skipForm" method="post">
+  <nav class="clx-another-nav">
+    <div class="clx-another-nav-box clx-box-mid">
+      <div class="logo-box clx-fl">
+        <a class="logo" href=""></a>
+      </div>
+      <ul class="clx-fr">
+        <li>
+          <a class="clx-font-s clx-btn-fontColor" href="javascript:;" page-url="serviceCenterController/initServiceCenter">服务中心</a>
+        </li>
+        <li>
+          <a class="clx-font-s clx-btn-fontColor" href="javascript:;" page-url="districtSettledController/initDistrictSettled">入驻小区</a>
+        </li>
+        <li>
+          <a class="clx-font-s clx-btn-fontColor" href="javascript:;" page-url="coopApplyController/initCoopApply">合作申请</a>
+        </li>
+        <li>
+          <a class="clx-font-s clx-btn-fontColor" href="javascript:;" page-url="helpController/initHelp">使用帮助</a>
+        </li>
+        <li>
+          <a class="clx-font-s clx-btn-fontColor" href="javascript:;" page-url="aboutController/initAbout">关于我们</a>
+        </li>
+        <li>
+          <a class="clx-font-s clx-btn-fontColor" href="javascript:;" page-url="joinInController/initJoinIn">加入我们</a>
+        </li>
+      </ul>
+    </div>
+    <div class="clx-clear"></div>
+  </nav>
+</form>
